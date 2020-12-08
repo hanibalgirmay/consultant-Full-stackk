@@ -1,0 +1,128 @@
+
+<h1>Message List</h1>
+<div class="container">
+  <div class="row ">
+    <div class="col-sm ">
+      <div class="example-container mat-elevation-z8">
+          <div style="margin-top: 10%;padding: .7em" >
+            <mat-form-field>
+              <input matInput type="text" (keyup)="doFilter($event.target.value)" placeholder="Filter">
+            </mat-form-field>
+            <div>
+              <!-- <a data-toggle="modal" data-target="#createModal" mat-button color="primary">Create Message</a> -->
+              <button class="btn btn-primary" style="float: right;display:inline-block;" (click)="getMessage()">Referesh</button>
+            </div>
+            
+          </div>
+          <mat-card>
+            <table mat-table [dataSource]="dataSource" matSort>
+              <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Id </th>
+                <td mat-cell *matCellDef="let element"> 1 </td>
+              </ng-container>
+              <ng-container matColumnDef="subject">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Subject </th>
+                <td mat-cell *matCellDef="let element"> {{element.subject}} </td>
+              </ng-container>
+              
+              <ng-container matColumnDef="message">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Message </th>
+                <td mat-cell *matCellDef="let element"> {{element.message}} </td>
+              </ng-container>
+      
+              <!-- <ng-container matColumnDef="websiteLink">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Subject </th>
+                <td mat-cell *matCellDef="let element"> {{element.subject}} </td>
+              </ng-container>
+      -->
+      
+              <ng-container matColumnDef="details">
+                <th mat-header-cell *matHeaderCellDef> Details </th>
+                <td mat-cell *matCellDef="let element">
+                  <button mat-icon-button color="primary"  data-toggle="modal" data-target="#viewMsg" (click)="redirectToDetails(element._id)">
+                      <mat-icon class="mat-18">reorder</mat-icon>
+                  </button>
+                </td>
+              </ng-container>
+      
+              <ng-container matColumnDef="update">
+                  <th mat-header-cell *matHeaderCellDef> Update </th>
+                  <td mat-cell *matCellDef="let element">
+                    <button mat-icon-button color="accent" (click)="redirectToDetails(element._id)" data-toggle="modal" data-target="#viewModal" ><!--(click)="redirectToUpdate(element.id)"-->
+                        <mat-icon class="mat-18">system_update</mat-icon>
+                    </button>
+                  </td>
+                </ng-container>
+      
+                <ng-container matColumnDef="delete">
+                    <th mat-header-cell *matHeaderCellDef> Delete </th>
+                    <td mat-cell *matCellDef="let element">
+                      <button mat-icon-button color="warn" data-toggle="modal" data-target="#deletModal" (click)="redirectToDetails(element._id)" >
+                          <mat-icon class="mat-18">delete</mat-icon>
+                      </button>
+                    </td>
+                  </ng-container>
+      
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+      
+            <mat-paginator [pageSize]="8" [pageSizeOptions]="[8, 14, 20, 30]">
+            </mat-paginator>
+          </mat-card>
+          
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+<!-- view Deatil partner -->
+<div class="modal fade" id="viewMsg" tabindex="-1" role="dialog" aria-labelledby="viewMsg" aria-hidden="true">
+	<div class="modal-dialog" role="document" >
+		<div class="modal-content" >
+		<div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLabel">View Message</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+		<div class="modal-body">
+			<div class="media">
+			<div class="media-body">
+				<h5 class="mt-0"><p>Subject: {{data.subject}}</p></h5>
+				<p><strong style="color: #000;"> Message:</strong>{{data.message}}</p>
+				<!-- <p><strong style="color: #000;">Phone:</strong>{{data.phoneNumber}}</p> -->
+			</div>
+			</div>
+		</div>
+		
+		</div>
+	</div>
+	</div>
+	<!-- end parther -->
+	  
+<!-- delete modal -->
+<div class="modal fade" id="deletModal" tabindex="-1" role="dialog" aria-labelledby="deleteModal" aria-hidden="true">
+<div class="modal-dialog" role="document">
+	<div class="modal-content">
+	<div class="modal-header">
+		<h5 class="modal-title">Are You Sure You want to delete it! </h5>
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+	<div class="modal-body ">
+		<div class="alert alert-danger" role="alert">
+			<p> <strong> {{data.subject}}</strong></p>
+			<p> <strong> {{data.message}}</strong></p>
+		</div>
+		
+	</div>
+	<div class="modal-footer">
+		<!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+		<button type="button" class="btn btn-danger" (click)="deleteMessage(data._id)" data-dismiss="modal">Delete</button>
+	</div>
+	</div>
+</div>
+</div>

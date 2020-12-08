@@ -1,0 +1,146 @@
+<app-header></app-header>
+<!-- login -->
+<!-- <div class="mnm">
+		<div class="container" id="container" >
+		<div class="form-container sign-up-container">
+			<form action="#">
+				<h1>Create Account</h1>
+				<div class="social-container">
+					<a href="#" class="social face"><i class="fab fa-facebook-f"></i></a>
+					<a href="#" class="social google"><i class="fab fa-google-plus-g"></i></a>
+					<a href="#" class="social likdn"><i class="fab fa-linkedin-in"></i></a>
+				</div>
+				<span>or use your email for registration</span>
+				<input type="text" placeholder="Name" />
+				<input type="email" placeholder="Email" />
+				<input type="password" placeholder="Password" />
+				<button type="submit"><a routerLink="register"> Sign Up</a></button>
+			</form>
+		</div>
+		<div class="form-container sign-in-container">
+			<form class="login-form" [formGroup]="formLogin" autocomplete="off" (ngSubmit)="Userlogin(formLogin.value)">
+				<h2>SignIn</h2>
+				<div class="row">
+					<div class="col-sm">
+						<mat-form-field >
+							<input matInput placeholder="Email" formControlName="email">
+							<mat-error *ngIf="hasError('email','email') && hasError('email','required')">
+								Please enter a valid email address
+							</mat-error>
+							<mat-error *ngIf="hasError('email','required')">
+								Email is <strong>required</strong>
+							</mat-error>
+						</mat-form-field>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm">
+						<mat-form-field>
+							<input matInput placeholder="Enter your password" formControlName="password" [type]="hide ? 'password' : 'text'">
+							<button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+								<mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+							</button>
+							<mat-error *ngIf="hasError('password','required')">
+								Password is <strong>required</strong>
+							</mat-error>
+						</mat-form-field>
+					</div>
+				</div>
+
+				<div class="row" style="margin-top: 30px;width: 100%;">
+					<div class="col-sm">
+						<button type="submit" [disabled]="!formLogin.valid" class="btn-login float-right">Login</button>
+						<button mat-button style="margin-top: 10px"><a routerLink="/register">Register</a> </button>
+					</div>
+					<p><a routerLink="/user/forgot"> Forget Password</a></p>
+				</div>
+			
+			</form>
+		</div>
+		<div class="overlay-container">
+			<div class="overlay">
+				<div class="overlay-panel overlay-left">
+					<h1>Welcome Back!</h1>
+					<p>To keep connected with us please login with your personal info . Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime earum fugit maiores quasi magni, numquam ad animi quo sit. Explicabo.</p>
+					<button class="ghost" id="signIn">Sign In</button>
+				</div>
+				<div class="overlay-panel overlay-right">
+					<h1>Hello, Friend!</h1>
+					<p>Enter your personal details and start journey with us</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod perspiciatis culpa fugiat, exercitationem nihil consectetur labore sit et corporis? Dolore?</p>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+</div> -->
+
+
+<!-- end -->
+<div class="login_wrapper">
+    <div class="container">
+        <div class="col-md-12 pad-0">
+            <div class="row login-box-12">
+            	<div class="col-lg-5 col-md-12 col-sm-12 px-0">
+                	<div class="login_right">
+	                    <a href="#" class="logo_text">
+	                        <span>AAU</span> Business Enterprize
+	                    </a>
+	                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt Lorem Ipsum</p>
+	                    <a href="#" class="btn-outline">Read More</a>
+	                    <ul class="social-list clearfix">
+	                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+	                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+	                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+	                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+	                    </ul>
+	                </div>
+                </div>
+                <div class="col-lg-7 col-sm-12">
+                    <div class="login-inner-form">
+                        <div class="details">
+                            <h3>Login to <span>your account</span></h3>
+                            <form [formGroup]="formLogin" autocomplete="off" (ngSubmit)="Userlogin(formLogin.value)">
+                                <mat-form-field style="width: 100%">
+									<input matInput placeholder="Email" formControlName="email">
+									<mat-error *ngIf="hasError('email','email') && hasError('email','required')">
+										Please enter a valid email address
+									</mat-error>
+									<mat-error *ngIf="hasError('email','required')">
+										Email is <strong>required</strong>
+									</mat-error>
+								</mat-form-field>
+                                <mat-form-field style="width: 100%">
+									<input matInput placeholder="Enter your password" formControlName="password" [type]="hide ? 'password' : 'text'">
+									<button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+										<mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+									</button>
+									<mat-error *ngIf="hasError('password','required')">
+										Password is <strong>required</strong>
+									</mat-error>
+								</mat-form-field>
+                                <div class="checkbox clearfix">
+                                    <div class="form-check checkbox-theme">
+                                        <input class="form-check-input" type="checkbox" value="" id="rememberMe">
+                                        <label class="form-check-label" for="rememberMe">
+                                            Remember me
+                                        </label>
+                                    </div>
+                                    <a routerLink="/user/forgot">Forgot Password</a>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" [disabled]="!formLogin.valid" class="btn-md btn-theme btn-block">Login</button>
+                                </div>
+                            </form>
+                            <p>Don't have an account?<a routerLink="/register"> Register here</a></p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- footer -->
+<!-- <app-footer></app-footer> -->

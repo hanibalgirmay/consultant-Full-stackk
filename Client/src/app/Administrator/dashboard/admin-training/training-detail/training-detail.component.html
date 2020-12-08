@@ -1,0 +1,205 @@
+
+<!-- body here -->
+<div class="page-wrapper" id="print-section">
+    <div class="wrapper wrapper--w680">
+        <div class="card card-1">
+            <div class="card-heading"></div>
+            <div class="card-body">
+                <h2 class="title">A. Training Services Request Application Form, Form-TRAF-01</h2>
+                <h4 class="sub-title">Please fill the form in BLOCK letters. If you are applying for more than one training, you can list the level &amp; code
+                  of them or you can list the training Code &amp; level at the bottom of this form.</h4>
+                <form >
+                  <div class="form-left">
+                    <div class="container" style="margin: 20px">
+                      <h3 class="sub-title">1. Client’s Company/Organizational Information</h3>
+                      <div class="row">
+                        <div class="col-sm">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Company Name (disabled)" disabled value="{{training.company_Name}}">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-sm">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Tin Number (disabled)" disabled value="{{training.tin_number}}">
+                          </mat-form-field>
+                        </div>
+                        
+                      </div>
+                      <div class="row">
+                        <div class="col-sm">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Company Address (disabled)" disabled value="{{training.company_address}}">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-sm">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Tell-Number (disabled)" disabled value="{{training.tell_number}}">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Email (disabled)" disabled value="{{training.email}}">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Contact Person (disabled)" disabled value="{{training.contact_person}}">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <h3 class="sub-title">2. Information on the Intended Consultancy Services</h3>
+                      <div class="row">
+                        <div class="col-sm">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Types/Areas of Consultancy (disabled)" disabled value="{{training.area_of_consultancy}}">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-sm">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Level of Consultancy (disabled)" disabled value="{{training.level_of_consultancy}}">
+                          </mat-form-field>
+                        </div>
+
+                      </div>
+                      <div class="row">
+                        <div class="col-sm">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Topics of Consultancy (disabled)" disabled value="{{training.topics_of_consultancy}}">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-sm">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Consultancy time frame/schedule (disabled)" disabled value="{{training.consultancy_time}}">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Total consultancy hours required (disabled)" disabled value="{{training.total_consultancy_hour}}">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="The whereabouts of the consultancy services to be delivered (disabled)" disabled value="{{training.where_delivery_service}}">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Focal Person (disabled)" disabled value="{{training.focal_person}}">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <h3 class="sub-title">3. Fees settlement</h3>
+                      <div class="row">
+                        <div class="col-sm">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Payable a week before the commencement of the consultancy services (disabled)" disabled value="{{training.payable_week_before_consultancy}}">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Payable on the date of this request (disabled)" disabled value="{{training.payable_date_request}}">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Payable on the date of commencement or after the delivery (disabled)" disabled value="{{training.payable_week_after}}">
+                          </mat-form-field>
+                        </div>
+                        
+                      </div>
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Registered time and date" disabled value="{{training.registeration_date}}">
+                      </mat-form-field>
+                      <div class="row">
+                        <div class="col-sm">
+                          <mat-checkbox [disabled]="disabled">I agree to Terms Of Service!</mat-checkbox>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <!-- <div class="col-sm">
+                          <button mat-button type="submit" [disabled]="!validationForm.value">Send</button>
+                        </div> -->
+                      </div>
+                    </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button (click)="print()">print</button>
+
+  
+
+<button style="float: right" data-toggle="modal" (click)="replay(training._id)" data-target="#replayModal"> Reply</button>
+
+<!-- modal for message -->
+<div class="modal fade" id="replayModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Send Mail</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="container-fluid">
+              <form [formGroup]="validationForm" autocomplete="off" (ngSubmit)="replay(validationForm.value)" novalidate>
+                  <div class="row">
+                      <div class="col-sm">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="User Email" formControlName="email" disabled='true'>{{training.email}}
+                          </mat-form-field>
+                      </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="subject" formControlName="subject" >
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                          <div class="col-sm">
+                              <mat-form-field class="example-full-width">
+                                <textarea rows="5" matInput placeholder="Message..." formControlName="message"></textarea>
+                              </mat-form-field>
+                          </div>
+                    </div>
+                    <!-- <div class="row">
+                      <div class="col-sm">
+                        <input type="file" style="float: right" value="attach" id="file"  name="attach" (change)="createFormData($event)">
+                      </div>
+                      <div class="col-sm">
+                        <input  *ngIf="document" id="thumbnail" title="thumb" src={{image}} class="thumbnail"/>
+                      </div>
+                    </div> -->
+                    <mat-slide-toggle formControlName="attach" style="float: right" >Send Aggrements!</mat-slide-toggle>
+                    <button type="submit" class="btn btn-primary" [disabled]="!validationForm.value" >Send</button>
+                    
+  
+                  </form>
+             
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end modal -->

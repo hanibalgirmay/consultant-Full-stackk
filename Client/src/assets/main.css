@@ -1,0 +1,245 @@
+font-family: "Segoe UI", "Proxima Nova", "Open Sans", "Roboto", "Helvetica", -apple-system, system-ui, BlinkMacSystemFont, sans-serif;
+    font-size: 1rem;
+    background-color: #ffffff;
+    color: #1d1d1d;
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+}
+html {
+    box-sizing: border-box;
+    font-family: sans-serif;
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -ms-overflow-style: scrollbar;
+    -webkit-tap-highlight-color: transparent;
+}
+user agent stylesheet
+html {
+    color: -internal-root-color;
+}
+*, ::after, ::before {
+    box-sizing: inherit;
+}
+*, ::after, ::before {
+    box-sizing: inherit;
+}
+.navbar-brand {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    padding: 0;
+    -webkit-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
+    color: currentColor;
+}
+.logo {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
+.logo .light-logo img {
+    height: 49px;
+    width: 48px;
+}
+.text{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    color: currentColor;
+    font-size: 1rem;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+ul li a, nav a{
+    color: #fff
+}
+.jumbotron {
+    background: url("img/back.png") no-repeat center;
+    height: 100vh;
+    background-color: rgb(37,51,71);
+}
+.btn-primary {
+    background-color: #c60063;
+    border-color: #c60063;
+}
+img{
+	width: 100%;
+}
+.cl,  nav.navbar {
+	color: #fff;
+}
+
+#bg {
+    width: 100%;
+    background-image: url('img/path 3.svg');
+    background-repeat: no-repeat;
+    background-position: all;
+    height: 200vh;
+    margin-left: -40%;
+}
+@keyframes move_wave {
+    0% {
+        transform: translateX(0) translateZ(0) scaleY(1)
+    }
+    50% {
+        transform: translateX(-25%) translateZ(0) scaleY(0.55)
+    }
+    100% {
+        transform: translateX(-50%) translateZ(0) scaleY(1)
+    }
+}
+.waveWrapper {
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+}
+.waveWrapperInner {
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    height: 120%;
+    bottom: -1px;
+    
+    /*background-image: linear-gradient(to top, #86377b 20%, #27273c 80%);*/
+}
+.bgTop {
+    z-index: 15;
+    opacity: 0.5;
+}
+.bgMiddle {
+    z-index: 10;
+    opacity: 0.75;
+}
+.bgBottom {
+    z-index: 5;
+}
+.wave {
+    position: absolute;
+    left: 0;
+    padding: 0;
+    margin: 0;
+    width: 200%;
+    height: 100%;
+    background-repeat: repeat no-repeat;
+    background-position: 0 bottom;
+    /*transform-origin: center bottom;*/
+    background-image: url('img/bg-wave.png')
+}
+.waveTop {
+    background-size: 50% 100px;
+}
+.waveAnimation .waveTop {
+  animation: move-wave 3s;
+   -webkit-animation: move-wave 3s;
+   -webkit-animation-delay: 1s;
+   animation-delay: 1s;
+}
+.waveMiddle {
+    background-size: 50% 120px;
+}
+.waveAnimation .waveMiddle {
+    animation: move_wave 10s linear infinite;
+}
+.waveBottom {
+    background-size: 50% 100px;
+}
+.waveAnimation .waveBottom {
+    animation: move_wave 15s linear infinite;
+}
+.ma {
+    text-align: center;
+    width: 100%;
+}
+.display-title{
+    color: #D1335B;
+    font-size: 56px;
+    padding: 0px 0px 8px;
+    margin-top: 5% ;
+    /*Contrast: 4.84;*/
+}
+@media screen and (max-width:650px){
+    .wave {
+        background-image: none;
+        /* display: none; */
+    }
+}
+@media screen and (min-width: 768px){
+    .display-4 {
+        font-size: 3.5rem;
+    }
+    
+    .display-4 {
+        font-size: 2rem;
+        font-weight: 300;
+        line-height: 1.1;
+    }
+    h2 {
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        font-family: "Segoe UI", "Proxima Nova", "Open Sans", "Roboto", "Helvetica", -apple-system, system-ui, BlinkMacSystemFont, sans-serif;
+    }
+    .box-part {
+        margin-top: 4%;
+        box-shadow: 0px 2px 2px rgba(0,0,0,.4);
+        /*height: auto;*/
+        padding: 2em;
+        border-radius: 4%;
+
+    }
+    .box-part:hover{
+        box-shadow: 3px 6px 6px 5px rgba(0,0,4,.2);
+    }
+    /* .box-part:hover a{
+        background: #3487f7;
+        text-align: center;
+        color: #f7f5ec;
+        text-shadow: #000;
+        padding: 1em;
+    } */
+}
+
+.box-part {
+    margin-top: 18%;
+    box-shadow: 0px 2px 2px rgba(0,0,0,.4);
+    /*height: auto;*/
+    padding: 2em;
+    border-radius: 4%;
+
+}
+.box-part:hover{
+    box-shadow: 3px 6px 6px 5px rgba(0,0,4,.2);
+}
+/* .box-part:hover a{
+    background: #3487f7;
+    text-align: center;
+    color: #f7f5ec;
+    text-shadow: #000;
+    padding: 1em;
+} */

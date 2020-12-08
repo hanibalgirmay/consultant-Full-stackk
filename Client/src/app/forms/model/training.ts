@@ -1,0 +1,26 @@
+export class Training {
+	_id?:string;
+	company_Name?:string;
+	tin_number?:string;
+	company_address?:string;
+	tell_number?:string;
+	email?:string;
+	contact_person?:string;
+	area_of_training?:string;
+	level_of_training?:string;
+	topics_of_training?:string;
+	training_time?:string;
+	numbers_of_traniner?:string;
+	min_education_background_trainers?:string;
+	highest_education_background_trainers?:string;
+	language_perference?:string;
+	linguistic_skill?:string;
+	positional_level_trainers?:string;
+	prefered_training_venue?:string;
+	refrshiments_perference?:string;
+	lunch_perference?:string;
+	payable_week_before_research?:string;
+	payable_date_request?:string;
+	payable_week_after?:string;
+	registeration_date?:string;
+}

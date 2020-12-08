@@ -1,0 +1,98 @@
+<!-- ==================== contact-me-section start ==================== -->
+
+<!-- /.contact-me-section -->
+<!-- ==================== contact-me-section end ==================== -->
+
+
+<!-- <div id="contact" class="contact cd-section"> 
+  <div class="container"> -->
+    <h3 class="w3ls-title">Contact us</h3>
+    <p class="w3lsorder-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit sheets containing sed </p> 
+    <div class="row agileits-w3layouts">  
+      <div class="col-sm-6 contact-w3lsleft">
+        <div class="contact-grid agileits">
+          <h4>DROP US A LINE </h4>
+          <form [formGroup]="validationForm" autocomplete="off" (ngSubmit)="sendForm(validationForm.value)" novalidate> 
+            <div class="row">
+              <div class="col-sm">
+                <mat-form-field class="example-full-width" style="width: 100%" >
+                    <input matInput placeholder="Name" formControlName="name" id="name">
+                    <mat-error *ngIf="hasError('name','required')">
+                      Name is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+              </div>
+            </div>  
+              
+            <div class="row">
+              <div class="col-sm">
+                <mat-form-field class="example-full-width" style="width: 100%" >
+                    <input matInput placeholder="Subject" formControlName="subject" id="subject">
+                    <mat-error *ngIf="hasError('subject','required')">
+                      Subject Name is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                  <mat-form-field class="example-full-width" style="width: 100%" >
+                      <input matInput placeholder="Email" formControlName="email" id="email">
+                      <mat-error *ngIf="hasError('email','required')">
+                        Email Address is <strong>required</strong>
+                      </mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm">
+                  <mat-form-field class="example-full-width" style="width: 100%" >
+                      <textarea rows="5" matInput placeholder="Your Messasge" formControlName="message" id="message"></textarea>
+                      <mat-error *ngIf="hasError('message','required')">
+                        Message is <strong>required</strong>
+                      </mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+            
+            <input type="submit" [disabled]="!validationForm.value" >
+          </form> 
+        </div>
+      </div>
+      <div class="col-xs-6 col-sm-6 contact-w3lsright">
+        <h6><span>Sed interdum </span>interdum accumsan nec purus ac orci finibus facilisis. In sit amet placerat nisl in auctor sapien. </h6>
+        <div class="row mb-10">
+          <div class="col-ms-2 address-left">
+            <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+          </div>
+          <div class="col-ms-10 address-right">
+            <h5>Visit Us</h5>
+            <p>Addis Abeba, Ethiopia </p>
+          </div>
+          <div class="clearfix"> </div>
+        </div>
+        <div class="row mb-10">
+          <div class="col-ms-2 address-left">
+            <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+          </div>
+          <div class="col-sm-10 address-right">
+            <h5>Mail Us</h5>
+            <p><a href="mailto:test@example.com"> mail@example.com</a></p>
+          </div>
+          <div class="clearfix"> </div>
+        </div>
+        <div class="row">
+          <div class="col-ms-2 address-left">
+            <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
+          </div>
+          <div class="col-sm-10 address-right">
+            <h5>Call Us</h5>
+            <p>+251 222 333 4444</p>
+          </div>
+          <div class="clearfix"> </div>
+        </div>  
+      </div>
+      <div class="clearfix"> </div>
+    </div>  
+  <!-- </div>  
+</div>  -->

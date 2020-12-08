@@ -1,0 +1,214 @@
+
+<div class="page-wrapper" id="print-section">
+    <div class="row">
+      <div class="col-sm">
+        <button mat-button (click)="back()">Back</button>
+      </div>
+      <div class="col-sm print" >
+          <button mat-button (click)="print()">Print</button>
+        </div>
+    </div>
+    <div class="wrapper wrapper--w680">
+        <div class="card card-1">
+            <div class="card-heading"></div>
+            <div class="card-body">
+                <h2 class="title">A. Research Services Request Application Form, Form-RSRAF-01</h2>
+                <h4 class="sub-title">Please fill the form in BLOCK letters (to be filled by the organizational clients)</h4>
+                <form >
+                  <div class="form-left">
+                    <div class="container" style="margin: 20px">
+                      <h3 class="sub-title">1. Client’s Company/Organizational Information</h3>
+                      <div class="row">
+                        <div class="col-sm">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Company Name (disabled)" disabled >{{research.company_Name}}
+                          </mat-form-field>
+                        </div>
+                        <div class="col-sm">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Tin Number (disabled)" disabled >{{research.tin_number}}
+                          </mat-form-field>
+                        </div>
+                        
+                      </div>
+                      <div class="row">
+                        <div class="col-sm">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Company Address (disabled)" disabled >{{research.company_address}}
+                          </mat-form-field>
+                        </div>
+                        <div class="col-sm">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Tell-Number (disabled)" disabled >{{research.tell_number}}
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Email (disabled)" disabled >{{research.email}}
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Contact Person (disabled)" disabled >{{research.contact_person}}
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <h3 class="sub-title">2. Information on the Intended Research Services</h3>
+                      <div class="row">
+                        <div class="col-sm">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Types/Areas of Research (disabled)" disabled >{{research.area_of_research}}
+                          </mat-form-field>
+                        </div>
+                        <div class="col-sm">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Level of Research (disabled)" disabled >{{research.level_of_research}}
+                          </mat-form-field>
+                        </div>
+
+                      </div>
+                      <div class="row">
+                        <div class="col-sm">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Topics of Research (disabled)" disabled >{{research.topics_of_research}}
+                          </mat-form-field>
+                        </div>
+                        <div class="col-sm">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Research time frame/schedule (disabled)" disabled >{{research.research_time}}
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Total Research hours required (disabled)" disabled >{{research.total_research_hour}}
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="The whereabouts of the Research services to be delivered (disabled)" disabled >{{research.where_delivery_service}}
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Name of Researcher (disabled)" disabled >{{research.name_of_researchers}}
+                          </mat-form-field>
+                        </div>
+                        <div class="col-sm">
+                          <mat-form-field class="example-full-width">
+                              <input matInput placeholder="Transportation " disabled>{{research.transport_provision}}
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <h3 class="sub-title">3. Fees settlement</h3>
+                      <div class="row">
+                        <div class="col-sm">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Payable a week before the commencement of the Research services (disabled)" disabled >{{research.payable_week_before_Research}}
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Payable on the date of this request (disabled)" disabled >{{research.payable_date_request}}
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Payable on the date of commencement or after the delivery (disabled)" disabled >{{research.payable_week_after}}
+                          </mat-form-field>
+                        </div>
+                        
+                      </div>
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Registered time and date" disabled >{{research.registeration_date}}
+                      </mat-form-field>
+                      <div class="row">
+                        <div class="col-sm">
+                          <mat-checkbox [disabled]="disabled">I agree to Terms Of Service!</mat-checkbox>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <!-- <div class="col-sm">
+                          <button mat-button type="submit" [disabled]="!validationForm.value">Send</button>
+                        </div> -->
+                      </div>
+                    </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button (click)="print()">print</button>
+<button style="float: right" data-toggle="modal" (click)="replay(research._id)" data-target="#replayModal"> Reply</button>
+
+<!-- modal for message -->
+<div class="modal fade" id="replayModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Send Mail</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="container-fluid">
+              <form [formGroup]="validationForm" autocomplete="off" (ngSubmit)="replay(validationForm.value)" novalidate>
+                  <div class="row">
+                      <div class="col-sm">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="User Email" formControlName="email" disabled='true'>{{research.email}}
+                          </mat-form-field>
+                      </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="subject" formControlName="subject" >
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                          <div class="col-sm">
+                              <mat-form-field class="example-full-width">
+                                <textarea rows="5" matInput placeholder="Message..." formControlName="message"></textarea>
+                              </mat-form-field>
+                          </div>
+                    </div>
+                    <!-- <div class="row">
+                      <div class="col-sm">
+                        <input type="file" style="float: right" value="attach" id="file"  name="attach" (change)="createFormData($event)">
+                      </div>
+                      <div class="col-sm">
+                        <input  *ngIf="document" id="thumbnail" title="thumb" src={{image}} class="thumbnail"/>
+                      </div>
+                    </div> -->
+                    <mat-slide-toggle formControlName="attach" style="float: right" >Send Aggrements!</mat-slide-toggle>
+                    <button type="submit" class="btn btn-primary" [disabled]="!validationForm.value" >Send</button>
+                    
+  
+                  </form>
+             
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end modal -->
+ 

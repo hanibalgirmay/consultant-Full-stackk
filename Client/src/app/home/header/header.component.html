@@ -1,0 +1,82 @@
+<!-- <header class="jumbotron "> -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light"><!--navbar navbar-dark fixed-top-->
+      <div class="container">
+        <span class="logo">
+            <img class="light-logo" src="assets/aauenterpri-removebg-preview.png" alt="Logo">
+            <!-- <img class="dark-logo" src="img/logo_dark.png" alt="Logo"> -->
+        </span>
+        <span class="text">
+            <span class="line">AAU business enterprize</span>
+            <!-- <span class="line sub">Consulting and other</span> -->
+            <span class="hide">AAUBE</span>
+          </span>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+              
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto nav justify-content-end">
+                  <li class="nav-item active">
+                      <a class="nav-link" routerLink='/'>Home 
+                          <span class="sr-only">(current)</span>
+                      </a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">CRT Service</a>
+                        <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 40px, 0px);">
+                          <a class="dropdown-item" routerLink='/consultant'>Consultancy</a>
+                          <a class="dropdown-item" routerLink='/research'>Research</a>
+                          <a class="dropdown-item" routerLink='/training'>Training</a>
+                          <a class="dropdown-item" routerLink='/evaluations'>Evaluations</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" routerLink='/consultant/form'>consultancy Form</a>
+                          <a class="dropdown-item" routerLink='/research/form'>Research Form</a>
+                          <a class="dropdown-item" routerLink='/training/form'>Training Form</a>
+                        </div>   
+                        
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" routerLink='/mission'>Mission</a>
+                  </li>
+                <!-- <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                  <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 40px, 0px);">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Separated link</a>
+                  </div>
+                </li> -->
+                  <li class="nav-item">
+                      <a class="nav-link" href="#contact">Contact</a>
+                  </li>
+                  <li class="nav-item">
+                        <a class="nav-link" href="#partner">Partner</a>
+                    </li>
+                  <li class="nav-item">
+                    <a class="nav-link" routerLink="/blog">Blog</a>
+                  </li>
+                <!-- </ul> -->
+                  <!-- <ul class="nav navbar-nav"> -->
+                    <li *ngIf="!authService.isLoggedIn()" class="nav-item">
+                        <a routerLink="/login" class="nav-link" routerLinkActive="active">Log In</a>
+                    </li>
+                    <li *ngIf="authService.isLoggedIn()" class="nav-item dropdown">
+                        <div class="dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                    Welcome {{ authService.currentUser.firstname }}
+                            </a>
+                            <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 40px, 0px);">
+                                <a class="dropdown-item" routerLink="/user/profile">My Profile</a>
+                                <a class="dropdown-item" routerLink="/user/dashboard">Dashboard</a>
+                                <a class="dropdown-item" routerLink="/user/profile/password">Change Password</a>
+                                <a class="dropdown-item" routerLink="/user/logout">Logout</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+          </div>
+      </div>
+  </nav>
+  

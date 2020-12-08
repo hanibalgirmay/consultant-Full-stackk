@@ -1,0 +1,107 @@
+
+<div class="page-wrapper">
+    <div class="wrapper wrapper--w680" style="padding-top: 10%" id="print-section">
+        <div class="card card-1">
+            <div class="card-heading"></div>
+            <div class="card-body" style="margin-top: 4%;padding-right: 7%">
+              <h2 class="title">A Training Progress Assessment Form, TPAF-02</h2>
+              <h4 class="sub-title">Please fill the form in BLOCK letters (to be filled by the organizational clients)</h4>
+              <form [formGroup]="validationForm" autocomplete="off"  novalidate >
+                <div class="form-left">
+                  <div class="container" style="margin: 20px">
+                    <h3 class="sub-title">The focus of evaluation of training in the progress might be in the form of in class, on-line, This refers to how training is conducted off the job/in class, on-line, on-the job or a combination of these. This evaluation shall address the issues:</h3>
+                    
+                    <h3 class="sub-title">3. Evaluation of the Research Services</h3>
+                    <div class="row">
+                      <div class="col-sm">
+                        <!-- table -->
+                        <mat-card>
+                          <table>
+                            <tr> 
+                              <th>Training’s Progress Assessment Form</th>
+                              <th >Yes</th>
+                              <th >No</th>
+                              <th>Remark</th>
+                            </tr>
+                            <tr>
+                              <td>The quality of the Training</td>
+                              <td><input type="checkbox" formControlName="quality" value="Poor"></td>
+                              <td><input type="checkbox" formControlName="quality" value="Poor"></td>
+                            </tr>
+                            <tr>
+                              <td>The problem-solving nature of the training</td>
+                              <td><input type="checkbox" value="Poor" formControlName="problem" id=""></td>
+                              <td><input type="checkbox" formControlName="quality" value="Poor"></td>
+                            </tr>
+                            <tr>
+                              <td>1	Is the training supported by IT systems?</td>
+                              <td><input type="checkbox" value="Poor" formControlName="delivery" id=""></td>
+                              <td><input type="checkbox" formControlName="quality" value="Poor"></td>
+                            </tr>
+                            <tr>
+                              <td>Is the trainer knowledgeable and experienced in training issues?</td>
+                              <td><input type="checkbox" value="Poor" formControlName="responsiveness" id=""></td>
+                              <td><input type="checkbox" formControlName="quality" value="Poor"></td>
+                            </tr>
+                            <tr>
+                              <td>Are flexible methods employed to keep each trainee actively involved?</td>
+                              <td><input type="checkbox" value="Poor" formControlName="integrity" id=""></td>
+                              <td><input type="checkbox" formControlName="quality" value="Poor"></td>
+                            </tr>
+                            <tr>
+                              <td>Are there individual, pair, or group exercises during training?</td>
+                              <td><input type="checkbox" value="Poor" formControlName="performance" id=""></td>
+                              <td><input type="checkbox" formControlName="quality" value="Poor"></td>
+                            </tr>
+                            <tr>
+                              <td>Is the training delivery method participatory enough? </td>
+                              <td><input type="checkbox" value="Poor" formControlName="Overall_evaluation" id=""></td>
+                              <td><input type="checkbox" formControlName="quality" value="Poor"></td>
+                            </tr>
+                            <tr>
+                              <td>Do trainees get the opportunities of practice on the actual situation? </td>
+                              <td><input type="checkbox" value="Poor" formControlName="Overall_evaluation" id=""></td>
+                              <td><input type="checkbox" formControlName="quality" value="Poor"></td>
+                            </tr>
+                            <tr>
+                              <td>Do trainees relate theory to their own experiences; and do they generate ideas for implementation? </td>
+                              <td><input type="checkbox" value="Poor" formControlName="Overall_evaluation" id=""></td>
+                              <td><input type="checkbox" formControlName="quality" value="Poor"></td>
+                            </tr>
+                            <tr>
+                              <td>Do the facilities encourage the trainees to be interactive? </td>
+                              <td><input type="checkbox" value="Poor" formControlName="Overall_evaluation" id=""></td>
+                              <td><input type="checkbox" formControlName="quality" value="Poor"></td>
+                            </tr>
+                            <tr>
+                              <td>Are schedules and timetables flexible to meet the needs of trainees? </td>
+                              <td><input type="checkbox" value="Poor" formControlName="Overall_evaluation" id=""></td>
+                              <td><input type="checkbox" formControlName="quality" value="Poor"></td>
+                            </tr>
+                            <tr>
+                              <td>Is Experiential Learning employed? </td>
+                              <td><input type="checkbox" value="Poor" formControlName="Overall_evaluation" id=""></td>
+                              <td><input type="checkbox" formControlName="quality" value="Poor"></td>
+                            </tr>
+                            
+                          </table>
+                        </mat-card>
+                        <!-- end table -->
+                      </div>
+                    </div>
+  
+                    
+                    <div class="row">
+                      <div class="col-sm">
+                        <button class="btttn" mat-button type="submit" [disabled]="!validationForm.value">Send</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+              <!-- <button class="btttn" mat-button type="submit" (click)="print()" >Print</button> -->
+            </div>
+        </div>
+        <!-- <p>If you want to upload the file u download  <a routerLink="/evaluations/drag-drop" class="btn btn-secondary">click here</a></p> -->
+    </div>
+  </div>

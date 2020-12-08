@@ -1,0 +1,235 @@
+
+<div class="page-wrapper">
+    <div class="btn">
+      <button mat-button class="bt" (click)="redirectRequest(consultant.company_request_id)">View Request</button>
+      <button mat-button class="print" (click)="print()">Print</button>
+    </div>
+    <div class="wrapper wrapper--w680" style="padding-top: 10%" id="print-section">
+        <div class="card card-1">
+            <div class="card-heading"></div>
+            <div class="card-body" style="margin-top: 4%;padding-right: 7%">
+              <h2 class="title">Consultancy Services Evaluation Form, Form-CSEF-03</h2>
+              <h4 class="sub-title">Please fill the form in BLOCK letters (to be filled by the organizational clients)</h4>
+              <!-- <div *ngIf='' class="alert alert-danger" role="alert">
+                A simple danger alert—check it out!
+              </div> -->
+              <form>
+                <div class="form-left">
+                  <div class="container" style="margin: 20px">
+                    <h3 class="sub-title">1. Client’s Company/Organizational Information</h3>
+                    <div class="row">
+                      <div class="col-sm">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Company Name" disabled  id="company_Name">{{consultant.company_Name}}
+                        </mat-form-field>
+                      </div>
+                      <div class="col-sm">
+                        <mat-form-field class="example-full-width">
+                            <input matInput type="Number" #tin maxlength="13" disabled placeholder="Tin Number" id="tin_number">{{consultant.tin_number}}
+                        </mat-form-field>
+                      </div>
+                      
+                    </div>
+                    <div class="row">
+                      <div class="col-sm">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Company Address" disabled id="company_address">{{consultant.company_address}}
+                        </mat-form-field>
+                      </div>
+                      <div class="col-sm">
+                        <mat-form-field class="example-full-width">
+                          <!-- <span matPrefix>+251 &nbsp;</span>   -->
+                          <input matInput type="tel" #tell maxlength="10" disabled placeholder="Tell-Number"  id="tell_number">+251-{{consultant.tell_number}}
+                          
+                        </mat-form-field>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Email" disabled  id="email">{{consultant.email}}
+                          
+                        </mat-form-field>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Contact Person" disabled id="contact_person">{{consultant.contact_person}}
+                            
+                        </mat-form-field>
+                      </div>
+                    </div>
+                    <h3 class="sub-title">2. Information on the Intended Consultancy Services</h3>
+                    <div class="row">
+                      <div class="col-sm">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Types/Areas of Consultancy" disabled id="area_of_consultancy">{{consultant.area_of_consultancy}}
+                           
+                        </mat-form-field>
+                      </div>
+                      <div class="col-sm">
+                        <mat-form-field>
+                          <input matInput placeholder="Level of Consultancy" disabled>{{consultant.level_of_consultancy}}
+                        </mat-form-field>
+                      </div>
+
+                    </div>
+                    <div class="row">
+                      <div class="col-sm">
+                        <mat-form-field class="example-full-width">
+                            <input matInput disabled placeholder="Topics of Consultancy" id="topics_of_consultancy">{{consultant.topics_of_consultancy}}
+                            
+                        </mat-form-field>
+                      </div>
+                      <div class="col-sm">
+                        <mat-form-field class="example-full-width">
+                            <input matInput disabled placeholder="Consultancy time frame/schedule" id="consultancy_time">{{consultant.consultancy_time}}
+                            
+                        </mat-form-field>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm">
+                        <mat-form-field class="example-full-width">
+                            <input matInput disabled placeholder="Total consultancy hours required (if known in advance)" id="total_consultancy_hour">{{consultant.total_consultancy_hour}}
+                            
+                        </mat-form-field>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm">
+                        <mat-form-field class="example-full-width">
+                            <input matInput disabled placeholder="The whereabouts of the consultancy services to be delivered"  id="where_delivery_service">{{consultant.where_delivery_service}}
+                            
+                        </mat-form-field>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm">
+                        <mat-form-field class="example-full-width">
+                            <input matInput disabled placeholder="Names of Consultants" id="name_consultant">{{consultant.name_consultant}}
+                           
+                        </mat-form-field>
+                      </div>
+                    </div>
+                    <h3 class="sub-title">3. Consultancy Service Evaluation</h3>
+                    <div class="row">
+                      <div class="col-sm">
+                        <!-- table -->
+                        <mat-card>
+                          <ul>
+                            <ol>
+                              <li>The relevance & appropriateness of the delivered service:  <strong><i>{{consultant.relevant}}</i></strong></li>
+                              <li>The quality of the services:  <strong><i>{{consultant.quality}}</i></strong></li>
+                              <li>The timing of the services:  <strong><i>{{consultant.timing}}</i></strong></li>
+                              <li>The problem solving level:  <strong><i>{{consultant.problem}}</i></strong></li>
+                              <li>The will & approaches of the assigned consultant:  <strong><i>{{consultant.approaches}}</i></strong></li>
+                              <li>The capacity & performance of the assigned consultant:  <strong><i>{{consultant.capacity}}</i></strong></li>
+                              <li>Overall evaluation of the consultancy service:  <strong><i>{{consultant.Overall_evaluation}}</i></strong></li>
+                            </ol>
+                          </ul>
+                          <!-- <table>
+                            <tr> 
+                              <th>Evaluation factors</th>
+                              <th colspan="5" >Rating Points</th>
+                              <th>Remark</th>
+                            </tr>
+                            <tr>
+                              <td style="border-collapse: collapse"></td>
+                              <td>1</td>
+                              <td>2</td>
+                              <td>3</td>
+                              <td>4</td>
+                              <td>5</td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>The relevance & appropriateness of the delivered service</td>
+                              <td><input type="radio" formControlName="relevant" value="Poor"></td>
+                              <td><input type="radio" formControlName="relevant" value="below Satisfactory"></td>
+                              <td><input type="radio" formControlName="relevant" value="satisfactory"></td>
+                              <td><input type="radio" formControlName="relevant" value="Very Good"></td>
+                              <td><input type="radio" formControlName="relevant" value="Excellent"></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>The quality of the services</td>
+                              <td><input type="radio" value="Poor" formControlName="quality" id=""></td>
+                              <td><input type="radio" value="below Satisfactory" formControlName="quality" id=""></td>
+                              <td><input type="radio" value="satisfactory" formControlName="quality" id=""></td>
+                              <td><input type="radio" value="Very Good" formControlName="quality" id=""></td>
+                              <td><input type="radio" value="Excellent" formControlName="quality" id=""></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>The timing of the services</td>
+                              <td><input type="radio" value="Poor" formControlName="timing" id=""></td>
+                              <td><input type="radio" value="below Satisfactory" formControlName="timing" id=""></td>
+                              <td><input type="radio" value="satisfactory" formControlName="timing" id=""></td>
+                              <td><input type="radio" value="Very Good" formControlName="timing" id=""></td>
+                              <td><input type="radio" value="Excellent" formControlName="timing" id=""></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>The problem solving level</td>
+                              <td><input type="radio" value="Poor" formControlName="problem" id=""></td>
+                              <td><input type="radio" value="Below Satisfactory" formControlName="problem" id=""></td>
+                              <td><input type="radio" value="Satisfactory"  formControlName="problem" id=""></td>
+                              <td><input type="radio" value="Very Good" formControlName="problem" id=""></td>
+                              <td><input type="radio" value="Excellent" formControlName="problem" id=""></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>The will & approaches of the assigned consultant</td>
+                              <td><input type="radio" value="Poor" formControlName="approaches" id=""></td>
+                              <td><input type="radio" value="Below Satisfactory" formControlName="approaches"></td>
+                              <td><input type="radio" value="Satisfactory" formControlName="approaches" id=""></td>
+                              <td><input type="radio" value="Very Good" formControlName="approaches" id=""></td>
+                              <td><input type="radio" value="Excellent" formControlName="approaches" id=""></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>The capacity & performance of the assigned consultant</td>
+                              <td><input type="radio" value="Poor" formControlName="capacity" id=""></td>
+                              <td><input type="radio" value="Below Satisfactory" formControlName="capacity" id=""></td>
+                              <td><input type="radio" value="Satisfactory" formControlName="capacity" id=""></td>
+                              <td><input type="radio" value="Very Good" formControlName="capacity" id=""></td>
+                              <td><input type="radio" value="Excellent" formControlName="capacity" id=""></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>Overall evaluation of the consultancy service </td>
+                              <td><input type="radio" value="Poor" formControlName="Overall_evaluation" id=""></td>
+                              <td><input type="radio" value="Below Satisfactory" formControlName="Overall_evaluation" id=""></td>
+                              <td><input type="radio" value="Satisfactory" formControlName="Overall_evaluation"  id=""></td>
+                              <td><input type="radio" value="Very Good" formControlName="Overall_evaluation" id=""></td>
+                              <td><input type="radio" value="Excellent" formControlName="Overall_evaluation" id=""></td>
+                              <td></td>
+                            </tr>
+                            
+                          </table> -->
+                        </mat-card>
+                        <!-- end table -->
+                      </div>
+                    </div>
+
+                    <h3 class="sub-title" style="margin-top: 10px;">4. Additional Feedbacks </h3>
+                    <div class="row">
+                      <div class="col-sm">
+                         <mat-form-field class="example-full-width"> 
+                          <textarea matInput rows="4" placeholder="Write down here..."></textarea>
+                        </mat-form-field>
+                      </div>
+                    </div>
+
+                  
+                  </div>
+                </div>
+              </form>
+              <button class="btttn" mat-button type="submit" (click)="print()" >Print</button>
+            </div>
+        </div>
+        <p>If you want to upload the file u download  <a routerLink="/evaluations/drag-drop" class="btn btn-secondary">click here</a></p>
+    </div>
+</div>

@@ -1,0 +1,274 @@
+
+<div class="page-wrapper">
+  <div class="wrapper wrapper--w680" style="padding-top: 10%" id="print-section">
+      <div class="card card-1">
+          <div class="card-heading"></div>
+          <div class="card-body" style="margin-top: 4%;padding-right: 7%">
+            <h2 class="title">Research Services Evaluation Form, Form-RSEF-03</h2>
+            <h4 class="sub-title">Please fill the form in BLOCK letters (to be filled by the organizational clients)</h4>
+            <form [formGroup]="validationForm" autocomplete="off" (ngSubmit)="sendEvalResearch(validationForm.value)" novalidate >
+              <div class="form-left">
+                <div class="container" style="margin: 20px">
+                  <h3 class="sub-title">1. Client’s Company/Organizational Information</h3>
+                  <div class="row">
+                    <div class="col-sm">
+                      <mat-form-field class="example-full-width">
+                          <input matInput placeholder="Company Name" formControlName="company_Name" id="company_Name">
+                          <mat-error *ngIf="hasError('company_Name','required')">
+                            Company Name is <strong>required</strong>
+                          </mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-sm">
+                      <mat-form-field class="example-full-width">
+                          <input matInput #tin (keypress)="numberOnly($event)" maxlength="13" placeholder="Tin Number" formControlName="tin_number" id="tin_number">
+                          <mat-hint align="end">tin number must be 13 digits! {{tin.value?.length || 0}}/13</mat-hint>
+                          <mat-error *ngIf="hasError('tin_number','required')">
+                            Tin Number is <strong>required</strong>
+                          </mat-error>
+                      </mat-form-field>
+                    </div>
+                    
+                  </div>
+                  <div class="row">
+                    <div class="col-sm">
+                      <mat-form-field class="example-full-width">
+                          <input matInput placeholder="Company Address" formControlName="company_address" id="company_address">
+                          <mat-error *ngIf="hasError('company_address','required')">
+                            Company Address is <strong>required</strong>
+                          </mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-sm">
+                      <mat-form-field class="example-full-width">
+                          <span matPrefix>+251 &nbsp;</span>
+                          <input matInput type="tel" (keypress)="numberOnly($event)" #tell maxlength="10" placeholder="Tell-Number" formControlName="tell_number" id="tell_number">
+                          <mat-hint align="end">{{tell.value?.length || 0}}/10</mat-hint>
+                          <mat-error *ngIf="hasError('tell_number','required')">
+                            Tell Number is <strong>required</strong>
+                          </mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm">
+                      <mat-form-field class="example-full-width">
+                          <input matInput placeholder="Email" formControlName="email" id="email">
+                          <mat-error *ngIf="hasError('email','email') && !hasError('email','required')">
+                            Please enter a valid email address
+                          </mat-error>
+                          <mat-error *ngIf="hasError('email','required')">
+                            Email is <strong>required</strong>
+                          </mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm">
+                      <mat-form-field class="example-full-width">
+                          <input matInput placeholder="Contact Person" formControlName="contact_person" id="contact_person">
+                          <mat-error *ngIf="hasError('contact_person','required')">
+                            Contact person is <strong>required</strong>
+                          </mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <h3 class="sub-title">2. Information on the Intended Research Services</h3>
+                  <div class="row">
+                    <div class="col-sm">
+                      <mat-form-field class="example-full-width">
+                          <input matInput placeholder="Types/Areas of Research" formControlName="area_of_research" id="area_of_research">
+                          <mat-error *ngIf="hasError('area_of_research','required')">
+                            Area of Research is <strong>required</strong>
+                          </mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-sm">
+                      <mat-form-field>
+                        <mat-label>Level of Research</mat-label>
+                        <mat-select formControlName="level_of_research" id="level_of_research">
+                          <mat-option>None</mat-option>
+                          <mat-option value="Senior">Senior</mat-option>
+                          <mat-option value="Middle level">Middle level</mat-option>
+                          <mat-option value="Entry/First Level">Entry/First Level</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+
+                  </div>
+                  <div class="row">
+                    <div class="col-sm">
+                      <mat-form-field class="example-full-width">
+                          <input matInput placeholder="Topics of Research" formControlName="topics_of_research" id="topics_of_research">
+                          <mat-error *ngIf="hasError('topics_of_research','required')">
+                            Topic of Research is <strong>required</strong>
+                          </mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-sm">
+                      <mat-form-field class="example-full-width">
+                          <mat-datepicker #time></mat-datepicker>
+                          <input matInput [matDatepicker]="time" placeholder="Time frame/schedule for the intended Research" formControlName="research_time" id="research_time">
+                          <mat-datepicker-toggle matSuffix [for]="time"></mat-datepicker-toggle>
+                          <mat-error *ngIf="hasError('research_time','required')">
+                            Research Time/schedue is <strong>required</strong>
+                          </mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm">
+                      <mat-form-field class="example-full-width">
+                          <input matInput type="number" placeholder="Total Research hours required (if known in advance)" formControlName="total_research_hour" id="total_research_hour">
+                          <mat-error *ngIf="hasError('total_research_hour','required')">
+                            Research hours is <strong>required</strong>
+                          </mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm">
+                      <mat-form-field class="example-full-width">
+                          <input matInput placeholder="The whereabouts of the research to be undertaken" formControlName="where_delivery_service" id="where_delivery_service">
+                          <mat-error *ngIf="hasError('where_delivery_service','required')">
+                            Where to occure Research is <strong>required</strong>
+                          </mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm">
+                      <mat-form-field class="example-full-width">
+                          <input matInput placeholder="Research's Names" formControlName="name_research" id="name_research">
+                          <mat-error *ngIf="hasError('name_research','required')">
+                            Name of Research is <strong>required</strong>
+                          </mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-sm">
+                      <mat-form-field class="example-full-width">
+                          <input matInput placeholder="Transport’s Provision" formControlName="transport_provision" id="transport_provision">
+                          <mat-error *ngIf="hasError('transport_provision','required')">
+                            Transport Provision is <strong>required</strong>
+                          </mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <h3 class="sub-title">3. Evaluation of the Research Services</h3>
+                  <div class="row">
+                    <div class="col-sm">
+                      <!-- table -->
+                      <mat-card>
+                        <table>
+                          <tr> 
+                            <th>Evaluation factors</th>
+                            <th colspan="5" >Rating Points</th>
+                            <th>Remark</th>
+                          </tr>
+                          <tr>
+                            <td style="border-collapse: collapse"></td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>The quality of the research</td>
+                            <td><input type="radio" formControlName="quality" value="Poor"></td>
+                            <td><input type="radio" formControlName="quality" value="below Satisfactory"></td>
+                            <td><input type="radio" formControlName="quality" value="satisfactory"></td>
+                            <td><input type="radio" formControlName="quality" value="Very Good"></td>
+                            <td><input type="radio" formControlName="quality" value="Excellent"></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>The problem-solving nature of the research</td>
+                            <td><input type="radio" value="Poor" formControlName="problem" id=""></td>
+                            <td><input type="radio" value="below Satisfactory" formControlName="problem" id=""></td>
+                            <td><input type="radio" value="satisfactory" formControlName="problem" id=""></td>
+                            <td><input type="radio" value="Very Good" formControlName="problem" id=""></td>
+                            <td><input type="radio" value="Excellent" formControlName="problem" id=""></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>The timely delivery of the services</td>
+                            <td><input type="radio" value="Poor" formControlName="delivery" id=""></td>
+                            <td><input type="radio" value="below Satisfactory" formControlName="delivery" id=""></td>
+                            <td><input type="radio" value="satisfactory" formControlName="delivery" id=""></td>
+                            <td><input type="radio" value="Very Good" formControlName="delivery" id=""></td>
+                            <td><input type="radio" value="Excellent" formControlName="delivery" id=""></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>The responsiveness of the assigned professionals</td>
+                            <td><input type="radio" value="Poor" formControlName="responsiveness" id=""></td>
+                            <td><input type="radio" value="Below Satisfactory" formControlName="responsiveness" id=""></td>
+                            <td><input type="radio" value="Satisfactory"  formControlName="responsiveness" id=""></td>
+                            <td><input type="radio" value="Very Good" formControlName="responsiveness" id=""></td>
+                            <td><input type="radio" value="Excellent" formControlName="responsiveness" id=""></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>The integrity &amp; reliability of the professionals</td>
+                            <td><input type="radio" value="Poor" formControlName="integrity" id=""></td>
+                            <td><input type="radio" value="Below Satisfactory" formControlName="integrity"></td>
+                            <td><input type="radio" value="Satisfactory" formControlName="integrity" id=""></td>
+                            <td><input type="radio" value="Very Good" formControlName="integrity" id=""></td>
+                            <td><input type="radio" value="Excellent" formControlName="integrity" id=""></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>The performance of the professionals</td>
+                            <td><input type="radio" value="Poor" formControlName="performance" id=""></td>
+                            <td><input type="radio" value="Below Satisfactory" formControlName="performance" id=""></td>
+                            <td><input type="radio" value="Satisfactory" formControlName="performance" id=""></td>
+                            <td><input type="radio" value="Very Good" formControlName="performance" id=""></td>
+                            <td><input type="radio" value="Excellent" formControlName="performance" id=""></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>The overall services evaluation </td>
+                            <td><input type="radio" value="Poor" formControlName="Overall_evaluation" id=""></td>
+                            <td><input type="radio" value="Below Satisfactory" formControlName="Overall_evaluation" id=""></td>
+                            <td><input type="radio" value="Satisfactory" formControlName="Overall_evaluation"  id=""></td>
+                            <td><input type="radio" value="Very Good" formControlName="Overall_evaluation" id=""></td>
+                            <td><input type="radio" value="Excellent" formControlName="Overall_evaluation" id=""></td>
+                            <td></td>
+                          </tr>
+                          
+                        </table>
+                      </mat-card>
+                      <!-- end table -->
+                    </div>
+                  </div>
+
+                  <h3 class="sub-title" style="margin-top: 10px;">4. Additional Feedbacks on the Services  </h3>
+                  <div class="row">
+                    <div class="col-sm">
+                       <mat-form-field class="example-full-width"> 
+                        <textarea matInput rows="4" placeholder="Write down here..."></textarea>
+                      </mat-form-field>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-sm">
+                        *NB. 1) Poor; 2) below Satisfactory 3) satisfactory 4) Very Good    5) Excellent
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm">
+                      <button class="btttn" mat-button type="submit" [disabled]="!validationForm.value">Send</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <button class="btttn" mat-button type="submit" (click)="print()" >Print</button>
+          </div>
+      </div>
+      <p>If you want to upload the file u download  <a routerLink="/evaluations/drag-drop" class="btn btn-secondary">click here</a></p>
+  </div>
+</div>

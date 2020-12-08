@@ -1,0 +1,195 @@
+
+<div class="container">
+      <div class="row">
+      <!-- <button mat-button data-toggle="modal" data-target="#message">Send Message</button> -->
+      <div class="col-sm">
+        <div style="margin-top: 5%" fxLayout fxLayout.lt-md="column wrap" fxLayoutAlign="center center" fxLayoutGap.gt-sm="250px" fxLayoutGap.lt.md="20px">
+          <mat-form-field>
+            <input matInput type="text" (keyup)="doFilter($event.target.value)" placeholder="Filter"> 
+          </mat-form-field>
+          <!-- <button mat-button (click)="getRecord(row._id)" >click</button> -->
+        </div>
+        <mat-card>
+          <table mat-table [dataSource]="dataSource" matSort>
+            <!-- Checkbox Column -->
+            <ng-container matColumnDef="select">
+              <th mat-header-cell *matHeaderCellDef>
+                <mat-checkbox (change)="$event ? masterToggle() : null"
+                              [checked]="selection.hasValue() && isAllSelected()"
+                              (click)="getRecord(row._id)" 
+                              [indeterminate]="selection.hasValue() && !isAllSelected()"
+                              [aria-label]="checkboxLabel()">
+                </mat-checkbox>
+              </th>
+              <td mat-cell *matCellDef="let row">
+                <mat-checkbox (click)="$event.stopPropagation()"
+                              (click)="getRecord(row._id)" 
+                              (change)="$event ? selection.toggle(row) : null"
+                              [checked]="selection.isSelected(row)"
+                              [aria-label]="checkboxLabel(row)">
+                </mat-checkbox>
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="firstname">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> First Name </th>
+              <td mat-cell *matCellDef="let element"> {{element.firstname}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="lastname">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </th>
+              <td mat-cell *matCellDef="let element"> {{element.lastname}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="email">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+              <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="send">
+              <th mat-header-cell *matHeaderCellDef> Send Email </th>
+              <td mat-cell *matCellDef="let element">
+                <button mat-icon-button color="primary" (click)="detail(element._id)" data-toggle="modal" data-target="#message" >
+                    <mat-icon class="mat-18">mail</mat-icon>
+                </button>
+              </td>
+              
+            </ng-container>
+
+            <ng-container matColumnDef="msg">
+                <th mat-header-cell *matHeaderCellDef> Send Message </th>
+                <td mat-cell *matCellDef="let element">
+                  <button mat-icon-button color="primary" (click)="localMessage(element._id)" >
+                      <mat-icon class="mat-18">send</mat-icon>
+                  </button>
+                </td>
+            </ng-container>
+            
+
+            <ng-container matColumnDef="details">
+              <th mat-header-cell *matHeaderCellDef> Details </th>
+              <td mat-cell *matCellDef="let element">
+                <button mat-icon-button color="primary" (click)="viewPro(element._id)" >
+                    <mat-icon class="mat-18">reorder</mat-icon>
+                </button>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="delete">
+              <th mat-header-cell *matHeaderCellDef> Delete </th>
+              <td mat-cell *matCellDef="let element">
+                <button mat-icon-button color="warn" (click)='detail(element._id)' data-toggle="modal" data-target="#deleteModal" >
+                    <mat-icon class="mat-18">delete</mat-icon>
+                </button>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row (click)="getRecord(row._id)" *matRowDef="let row; columns: displayedColumns;" 
+             ></tr>
+          </table>
+
+         
+          <mat-paginator [pageSize]="6" [pageSizeOptions]="[6, 10, 15, 20]">
+          </mat-paginator>
+        </mat-card>
+      </div>
+    </div>
+  
+</div>
+ 
+<!-- delete modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to delete!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" >
+        <p>Full Name: {{data.firstname}} {{data.lastname}}</p> 
+        <p>Email Address: {{data.email}}</p>
+      </div>
+      <div class="modal-footer" >
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger" (click)="deleteUsers(data._id)">Delete user</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end modal -->
+
+
+<!-- modal for user to send message -->
+<div class="modal fade custom" id="message" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-side modal-top-right" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <form [formGroup]="validateForm" (ngSubmit)="sendMessage(validateForm.value)" novalidate>
+            <div class="row">
+              <div class="col-sm">
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Recipant" formControlName="email" disabled='true'>{{data.email}}
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm">
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Subject" formControlName="subject" id="subject">
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm">
+                <mat-form-field class="example-full-width">
+                    <textarea rows="5" matInput placeholder="Your Message" formControlName="message" id="message"></textarea>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary" [disabled]="!validateForm.value" >Send message</button>
+            </div>
+          </form>
+        </div>
+          
+      </div>
+      
+    </div>
+  </div>
+</div>
+<!-- end modal -->
+
+<!-- Detail Modal -->
+<div class="modal fade" id="detail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{data.username}} detail</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>First Name: {{data.firstname}}</p>
+        <p>Last Name: {{data.lastname}}</p>
+        <p>Middle Name: {{data.middlename}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end -->

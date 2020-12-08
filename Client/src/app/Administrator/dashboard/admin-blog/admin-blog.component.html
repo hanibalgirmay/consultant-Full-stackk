@@ -1,0 +1,169 @@
+
+  <!-- <div class="container"> -->
+    <!-- <div class="row"> -->
+      <!-- <div class="col-sm"> -->
+<div style="margin-top: 5%" fxLayout fxLayout.lt-md="column wrap" fxLayoutAlign="center center" fxLayoutGap.gt-sm="250px" fxLayoutGap.lt.md="20px">
+  <mat-form-field>
+    <input matInput type="text" (keyup)="doFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+  <div>
+    <a mat-button color="primary" data-toggle="modal" data-target="#createModal">Create Blog</a>
+  </div>
+</div>
+<mat-card>
+    <table mat-table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Title </th>
+      <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="dateOfBlog">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Date of Blog </th>
+      <td mat-cell *matCellDef="let element"> {{element.created_at}} </td>
+    </ng-container>
+
+    <!-- <ng-container matColumnDef="address">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Address </th>
+      <td mat-cell *matCellDef="let element"> {{element.company_address}} </td>
+    </ng-container> -->
+
+    <ng-container matColumnDef="details">
+      <th mat-header-cell *matHeaderCellDef> Details </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button color="primary" (click)="redirectToDetails(element._id)">
+            <mat-icon class="mat-18">reorder</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="update">
+        <th mat-header-cell *matHeaderCellDef> Update </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-icon-button color="accent" (click)="redirectToDetails(element._id)" data-toggle="modal" data-target="#updateModal" >
+              <mat-icon class="mat-18">system_update</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="delete">
+          <th mat-header-cell *matHeaderCellDef> Delete </th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-icon-button color="warn" data-toggle="modal" data-target="#deleteModal" (click)="redirectToDetails(element._id)">
+                <mat-icon class="mat-18">delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSize]="6" [pageSizeOptions]="[6, 10, 20, 40]">
+  </mat-paginator>
+</mat-card>
+
+     
+
+
+
+
+
+<!-- Delete Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Are You sure you want to delete!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Title:{{data.title}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger" (click)="deleteBlog(data._id)" data-dismiss="modal">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- create blog -->
+<div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Are You sure you want to delete!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="validationForm"  autocomplete="off" (ngSubmit)="addBlog(validationForm.value)" novalidate>
+          <div class="row">
+            <div class="col-sm">
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Title" formControlName="title">
+              </mat-form-field>
+            </div>
+            
+          </div>
+          <div class="row">
+            <div class="col-sm">
+              <mat-form-field class="example-full-width">
+                <textarea matInput placeholder="Blog Content..." formControlName="message"></textarea>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" type="submit" [disabled]="!validationForm.value" data-dismiss="modal">Post Blog</button>
+          </div>
+        </form>
+        
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger" (click)="deleteBlog(data._id)">Delete</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+<!-- end create blog -->
+
+<!-- update blog -->
+<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Update blog!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="updateForm" autocomplete="off" (ngSubmit)="updateBlog(updateForm.value)" novalidate>
+            <div class="row">
+              <div class="col-sm">
+                <mat-form-field class="example-full-width" style="width: 100%">
+                  <input matInput placeholder="Title" formControlName="title" value="{{data.title}}">
+                </mat-form-field>
+              </div>
+              
+            </div>
+            <div class="row">
+              <div class="col-sm">
+                <mat-form-field class="example-full-width" style="width: 100%">
+                  <textarea matInput rows="5" placeholder="Blog Content..." formControlName="message" value="{{data.message}}"></textarea>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" type="submit" [disabled]="!updateForm.value">Update Blog</button>
+            </div>
+          </form>
+          
+        </div>
+      </div>
+    </div>
+  </div>

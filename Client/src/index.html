@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>AAU Business Enterprize and consulting</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="assets/aauenterpri-removebg-preview.png">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/f7a4a6da58.js"></script>
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/footer.css">
+  <link rel="stylesheet" href="assets/main.css">
+  <link rel="stylesheet" href="assets/contact.css">
+  <link rel="stylesheet" href="assets/sidebar.css">
+  <!-- <link rel="stylesheet" href="assets/css/delivery.css"> -->
+
+  <!-- contact -->
+  <!-- <link rel="stylesheet" href="assets/css/reset.css"> -->
+  <!-- <link rel="stylesheet" href="assets/css/materialize.css"> -->
+  <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
+  
+  <!-- <script src="assets/js/util.js"></script>
+  <script src="assets/js/menu-aim.js"></script>
+  <script src="assets/js/main.js"></script> -->
+  <!-- <script src="assets/js/custom.js"></script> -->
+  
+  <!-- <script src="assets/jquery-3.3.1.min.js"></script> -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript" charset="utf-8" async defer></script> -->
+  <script src="assets/js/delivery.js"></script>
+  <script src="assets/js/btn.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+        $('#sidebarCollapse').on('click', function () {
+            $('#sidebar').toggleClass('active');
+        });
+    });
+  </script>
+  <script>
+     $(window).scroll(function(){
+          var scroll = $(window).scrollTop();
+          if(scroll < 100){
+              $('.fixed-top').css('background', 'transparent');
+              $('.fixed-top').removeClass('shadow')
+          } else{
+              $('.fixed-top').css('background', '#fff');
+              $('.fixed-top').addClass('shadow')
+              $('.fixed-top a').css('color','#ca2');
+              $('nav.navbar').css('color', '#ccc');
+              $('span .navbar-toggler-icon').css('background-color','#d66');
+              $('nav a').css('color', '#c1c');
+          }
+      });
+
+      
+  //  to hide nav bar outside
+    jQuery('body').bind('click', function(e) {
+      if(jQuery(e.target).closest('.navbar').length == 0) {
+          // click happened outside of .navbar, so hide
+          var opened = jQuery('.navbar-collapse').hasClass('collapse in');
+          if ( opened === true ) {
+              jQuery('.navbar-collapse').collapse('hide');
+          }
+      }
+    });
+  </script>
+
+ 
+  
+</head>
+<body>
+  <app-root></app-root>
+</body>
+</html>

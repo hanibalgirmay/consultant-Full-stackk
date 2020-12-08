@@ -1,0 +1,210 @@
+<app-header></app-header>
+<div class="page-wrapper">
+    <div class="wrapper wrapper--w680" style="padding-top: 10%">
+        <div class="card card-1">
+            <div class="card-heading"></div>
+            <div class="card-body" style="margin-top: 4%;padding-right: 7%">
+                <h2 class="title">A. Research Services Request Application Form, Form-RSRAF-01</h2>
+                <h4 class="sub-title">Please fill the form in BLOCK letters (to be filled by the organizational clients)</h4>
+				<form [formGroup]="validationForm" autocomplete="off" (ngSubmit)="sendForm(validationForm.value)" novalidate >
+					<div class="form-left">
+						<div class="container" style="margin: 20px">
+							<h3 class="sub-title">1. Client’s Company/Organizational Information</h3>
+							<div class="row">
+								<div class="col-sm">
+									<mat-form-field class="example-full-width">
+									    <input matInput placeholder="Company Name" formControlName="company_Name">
+									    <mat-error *ngIf="hasError('company_Name','required')">
+									      Company Name is <strong>required</strong>
+									    </mat-error>
+									</mat-form-field>
+								</div>
+								<div class="col-sm">
+									<mat-form-field class="example-full-width">
+									    <input matInput #tin (keypress)="numberOnly($event)" maxlength="13" placeholder="Tin Number" formControlName="tin_number">
+									    <mat-hint align="end">tin number must be 13 digits! {{tin.value?.length || 0}}/13</mat-hint>
+									    <mat-error *ngIf="hasError('tin_number','required')">
+									      Tin Number is <strong>required</strong>
+									    </mat-error>
+									</mat-form-field>
+								</div>
+								
+							</div>
+							<div class="row">
+								<div class="col-sm">
+									<mat-form-field class="example-full-width">
+									    <input matInput placeholder="Company Address" formControlName="company_address">
+									    <mat-error *ngIf="hasError('company_address','required')">
+									      Company Address is <strong>required</strong>
+									    </mat-error>
+									</mat-form-field>
+								</div>
+								<div class="col-sm">
+									<mat-form-field class="example-full-width">
+										<span matPrefix>+251 &nbsp;</span>
+									    <input matInput type="tel" (keypress)="numberOnly($event)" maxlength="10" placeholder="Tell-Number" formControlName="tell_number">
+									    <mat-error *ngIf="hasError('tell_number','required')">
+									      Tell Number is <strong>required</strong>
+									    </mat-error>
+									</mat-form-field>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm">
+									<mat-form-field class="example-full-width">
+									    <input matInput placeholder="Email" formControlName="email">
+									    <mat-error *ngIf="hasError('email','email') && hasError('email','required')">
+									      Please enter a valid email address
+									    </mat-error>
+									    <mat-error *ngIf="hasError('email','required')">
+									      Email is <strong>required</strong>
+									    </mat-error>
+									</mat-form-field>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm">
+									<mat-form-field class="example-full-width">
+									    <input matInput placeholder="Contact Person" formControlName="contact_person">
+									    <mat-error *ngIf="hasError('contact_person','required')">
+									      Contact person is <strong>required</strong>
+									    </mat-error>
+									</mat-form-field>
+								</div>
+							</div>
+							<h3 class="sub-title">2. Information on the Intended Research </h3>
+							<div class="row">
+								<div class="col-sm">
+									<mat-form-field class="example-full-width">
+									    <input matInput placeholder="Types/Areas of Research" formControlName="area_of_research">
+									    <mat-error *ngIf="hasError('area_of_research','required')">
+									      Area of research is <strong>required</strong>
+									    </mat-error>
+									</mat-form-field>
+								</div>
+								<div class="col-sm">
+									<mat-form-field>
+									  <mat-label>Level of Research</mat-label>
+									  <mat-select formControlName="level_of_research" id="levelResearchControl">
+									    <mat-option>None</mat-option>
+									    <mat-option value="Senior">Senior</mat-option>
+									    <mat-option value="Middle level">Middle level</mat-option>
+									    <mat-option value="Entry/First Level">Entry/First Level</mat-option>
+									  </mat-select>
+									</mat-form-field>
+								</div>
+
+							</div>
+							<div class="row">
+								<div class="col-sm">
+									<mat-form-field class="example-full-width">
+									    <input matInput placeholder="Topics of Research" formControlName="topics_of_research">
+									    <mat-error *ngIf="hasError('topics_of_research','required')">
+									      Topic of research is <strong>required</strong>
+									    </mat-error>
+									</mat-form-field>
+								</div>
+								<div class="col-sm">
+									<mat-form-field class="example-full-width">
+										<mat-datepicker #time></mat-datepicker>
+										<input matInput [matDatepicker]="time"  placeholder="Research time frame/schedule" formControlName="research_time">
+										<mat-datepicker-toggle matSuffix [for]="time"></mat-datepicker-toggle>
+									    <mat-error *ngIf="hasError('research_time','required')">
+									      research Time/schedue is <strong>required</strong>
+									    </mat-error>
+									</mat-form-field>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm">
+									<mat-form-field class="example-full-width">
+									    <input matInput type="number" placeholder="Total Research hours required (if known)" formControlName="total_research_hour">
+									    <mat-error *ngIf="hasError('total_research_hour','required')">
+									      Research hours is <strong>required</strong>
+									    </mat-error>
+									</mat-form-field>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm">
+									<mat-form-field class="example-full-width">
+									    <input matInput placeholder="The whereabouts of the consultancy services to be delivered" formControlName="where_delivery_service">
+									    <mat-error *ngIf="hasError('where_delivery_service','required')">
+									      Where to occure research is <strong>required</strong>
+									    </mat-error>
+									</mat-form-field>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm">
+									<mat-form-field class="example-full-width">
+									    <input matInput placeholder="Name of Researcher " formControlName="name_of_researchers">
+									    <mat-error *ngIf="hasError('name_of_researchers','required')">
+									      Name of researcher is <strong>required</strong>
+									    </mat-error>
+									</mat-form-field>
+								</div>
+								<div class="col-sm">
+									<mat-form-field class="example-full-width">
+									    <input matInput placeholder="Transportation " formControlName="transport_provision">
+									    <mat-error *ngIf="hasError('transport_provision','required')">
+									      transportation is <strong>required</strong>
+									    </mat-error>
+									</mat-form-field>
+								</div>
+							</div>
+							<h3 class="sub-title">3. Fees settlement</h3>
+							<div class="row">
+								<div class="col-sm">
+									<mat-form-field class="example-full-width">
+									    <input matInput placeholder="Payable a week before the commencement of the consultancy services" formControlName="payable_week_before_research">
+									    <mat-error *ngIf="hasError('payable_week_before_research','required')">
+									      Enter payable week before research is <strong>required</strong>
+									    </mat-error>
+									</mat-form-field>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm">
+									<mat-form-field class="example-full-width">
+									    <input matInput [matDatepicker]="picker" placeholder="Payable on the date of this request" formControlName="payable_date_request">
+									    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  										<mat-datepicker #picker></mat-datepicker>
+									    <mat-error *ngIf="hasError('payable_date_request','required')">
+									      Enter payable date is <strong>required</strong>
+									    </mat-error>
+									</mat-form-field>
+								</div>
+							</div>
+							<!-- ** -->
+							<div class="row">
+								<div class="col-sm">
+									<mat-form-field class="example-full-width">
+									    <input matInput placeholder="Payable on the date of commencement or after the delivery, if the client requested & confirmed this with an official letter (for reputable clients only)" formControlName="payable_week_after">
+									    <mat-hint>Errors appear instantly!</mat-hint>
+									    <mat-error *ngIf="hasError('payable_week_after','required')">
+									      Enter payable week after research is <strong>required</strong>
+									    </mat-error>
+									</mat-form-field>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm">
+									<mat-checkbox>I agree to Terms Of Service!</mat-checkbox>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm">
+									<button mat-button>Send</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- footer -->
+<app-footer></app-footer>

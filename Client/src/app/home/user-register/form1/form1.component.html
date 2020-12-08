@@ -1,0 +1,149 @@
+<div class="login_wrapper">
+  <div class="row no-gutters">
+      <div class="col-md-6 fix">
+          <div class="login_left">
+              <div class="login_img_caption">
+                  <h2>Welcome to AAU business enterprise</h2>
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+              </div>
+              <div class="login_left_img"><img src="images/login-bg.jpg" alt="login background"></div>
+          </div>
+      </div>
+      <div class="col-md-6">
+          <div class="login_box">
+                <a href="#" class="logo_text">
+                    <span>AAU</span> Business and Enterprise
+                </a>
+                <div class="container">
+                  <form [formGroup]="FormRegister" autocomplete="off" (ngSubmit)="UserRegister(FormRegister.value)">
+                      
+                          <input type="hidden" placeholder="First Name" formControlName="_userId" value="{{dt._id}}" disabled>
+                        <div class="row">
+                          <div class="col-sm-6">
+                            <mat-form-field class="demo-full-width">    
+                              <input matInput placeholder="First Name" disabled>{{dt.firstname}}    
+                            </mat-form-field> 
+                          </div>
+                          <div class="col-sm-6">
+                            <mat-form-field class="demo-full-width">
+                              <input matInput placeholder="Last Name" disabled>{{dt.lastname}}
+                            </mat-form-field>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm">
+                            <mat-form-field class="demo-full-width">  
+                              <input matInput placeholder="Email" disabled>{{dt.email}}
+                            </mat-form-field>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm-6">
+                            <mat-form-field class="demo-full-width">    
+                              <input matInput placeholder="Middle Name" formControlName="middlename">    
+                            </mat-form-field> 
+                          </div>
+                          <div class="col-sm-6">
+                            <mat-form-field class="demo-full-width">
+                              <input matInput placeholder="Username" formControlName="username">
+                            </mat-form-field>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm-6">
+                            <mat-form-field class="demo-full-width">
+                              <input matInput [matDatepicker]="picker" placeholder="Birth date">
+                              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                              <mat-datepicker #picker></mat-datepicker>
+                            </mat-form-field>
+                          </div>
+                          <div class="col-sm-6">
+                            <mat-form-field class="demo-full-width">
+                              <mat-label>Sex</mat-label>
+                              <mat-select formControlName="sex">
+                                <mat-option value="male">Male</mat-option>
+                                <mat-option value="female">Female</mat-option>
+                                <mat-option value="unknown">Unknown</mat-option>
+                              </mat-select>
+                            </mat-form-field> 
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm-6">
+                            <mat-form-field class="demo-full-width">
+                              <mat-label>Status</mat-label>
+                              <mat-select formControlName="status"> 
+                                <mat-option value="Mr/Ms">Mr/Ms</mat-option>
+                                <mat-option value="PdD">PdD</mat-option>
+                                <mat-option value="Ass Pro">Ass Pro</mat-option>
+                                <mat-option value="Pro">Pro</mat-option>
+                              </mat-select>
+                            </mat-form-field>
+                          </div>
+                          <div class="col-sm-6">
+                            <mat-form-field class="demo-full-width">
+                              <input matInput placeholder="Department" formControlName="department" required>
+                            </mat-form-field>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm">
+                            <mat-form-field class="demo-full-width">
+                              <input matInput placeholder="Commencing Form" formControlName="commencing" required>
+                            </mat-form-field> 
+                          </div>
+                          <div class="col-sm">
+                            <mat-form-field class="demo-full-width">
+                              <input matInput placeholder="Educational Background" formControlName="eduaction" required>
+                            </mat-form-field>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm">
+                            <mat-form-field class="demo-full-width">
+                              <input matInput placeholder="Level" formControlName="level" required>
+                            </mat-form-field>
+                          </div>
+                          <div class="col-sm">
+                            <mat-form-field class="demo-full-width">
+                              <input matInput placeholder="Relevant Work experience:" formControlName="directExpriance" required>
+                            </mat-form-field>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm">
+                            <mat-form-field class="demo-full-width">
+                              <input matInput placeholder="Indirectly relevant work experience" formControlName="independentExpriance" required>
+                            </mat-form-field>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm">
+                            <mat-form-field class="demo-full-width">
+                              <input matInput placeholder="Your interest area among CRTs" formControlName="crt">
+                            </mat-form-field>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm">
+                            <mat-form-field class="demo-full-width">
+                              <input matInput placeholder="Availability for CRT services" formControlName="service" required>
+                            </mat-form-field>
+                          </div>
+                        </div>
+      
+                        <div class="row">
+                          <div class="col-sm" >
+                            <input type="file" accept="application/pdf" placeholder="Attach revised a signed &amp; scanned CV." required>
+                          </div>
+                        </div>
+
+                        <button class="btn btn-primary block" type="submit">Submit</button>
+                  </form>
+                  
+                </div>
+                  
+          </div>
+      </div>
+  </div>
+</div>

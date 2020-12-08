@@ -1,0 +1,258 @@
+<app-header></app-header>
+
+<mat-card style="margin: 7%">
+    <div class="container pagecontainer">
+      <div class="page-header">
+          <h1>My Profile</h1>
+      </div>
+    
+      <form [formGroup]="profileForm" (ngSubmit)="updateUser(profileForm.value)" class="form-horizontal" novalidate autocomplete="off">
+        <div class="row">
+            <div class="col-sm">
+                <div class="form-group">
+                        <label for="username" class="col-sm-2 control-label">Username</label>
+                        <div class="input-group col-sm-10">
+                            <div class="input-group-addon"><i class="glyphicon glyphicon glyphicon-user"></i></div>
+                            <div class="form-ele">{{ userObj.username }}</div>
+                        </div>
+                    </div>
+                    <!-- [ngClass]="{'has-error': profileForm.get('firstname').invalid && profileForm.get('firstname').dirty}" -->
+                    <div class="form-group" >
+                        <!-- <label for="fname" class="col-sm-2 control-label">First Name</label> -->
+                        <div class="input-group col-sm-10">
+                            <div class="input-group-addon"><i class="glyphicon glyphicon-font"></i></div>
+                            <!-- <input type="text" class="form-control" id="fname" [formControl]="firstname" placeholder="First Name"> -->
+                            <mat-form-field>
+                                <input matInput placeholder="First Name"  required>{{ userObj.firstname }}
+                            </mat-form-field>
+                            </div>
+                        <!-- <div class="text-danger" *ngIf="profileForm.get('firstname').dirty && profileForm.get('firstname').invalid">
+                            <span class="col-sm-2"></span>
+                            <span class="col-sm-10" style="padding:4px 0 0">Please enter your first name</span>
+                        </div> -->
+                    </div>
+                    <div class="form-group" >
+                        <!-- <label for="lname" class="col-sm-2 control-label">Last Name</label> -->
+                        <div class="input-group col-sm-10">
+                            <div class="input-group-addon"><i class="glyphicon glyphicon glyphicon-bold"></i></div>
+                            <!-- <input type="text" class="form-control" id="lname" [formControl]="lastname" placeholder="Last Name"> -->
+                            <mat-form-field>
+                                    <input matInput placeholder="Last Name"  required>
+                                </mat-form-field>
+                            </div>
+                        <!-- <div class="text-danger" *ngIf="profileForm.get('lastname').dirty && profileForm.get('lastname').invalid">
+                            <span class="col-sm-2"></span>
+                            <span class="col-sm-10" style="padding:4px 0 0">Please enter your last name</span>
+                        </div> -->
+                    </div>
+                    <div class="form-group" >
+                        <!-- <label for="lname" class="col-sm-2 control-label">Email</label> -->
+                        <div class="input-group col-sm-10">
+                            <!-- <div class="input-group-addon">@</div> -->
+                            <!-- <input type="text" class="form-control" id="lname" [formControl]="email" placeholder="Email"> -->
+                            <mat-form-field>
+                                    <input matInput placeholder="Email"  required>
+                                </mat-form-field>
+                            </div>
+                        <!-- <div class="text-danger" *ngIf="profileForm.get('email').dirty && profileForm.get('email').invalid">
+                            <span class="col-sm-2"></span>
+                            <span class="col-sm-10" style="padding:4px 0 0">Please enter a valid email</span>
+                        </div> -->
+                    </div>
+            
+                    <div class="form-group" [ngClass]="{'has-error': profileForm.get('status').invalid && profileForm.get('status').dirty}">
+                        <!-- <label for="lname" class="col-sm-2 control-label">Status</label> -->
+                        <div class="input-group col-sm-10">
+                            <!-- <div class="input-group-addon">@</div> -->
+                            <!-- <input type="text" class="form-control" id="lname" [formControl]="email" placeholder="Status"> -->
+                            <mat-form-field>
+                                <mat-label>Status</mat-label>
+                                <mat-select formControlName="status"> 
+                                    <mat-option value="Mr/Ms">Mr/Ms</mat-option>
+                                    <mat-option value="PdD">PdD</mat-option>
+                                    <mat-option value="Ass Pro">Ass Pro</mat-option>
+                                    <mat-option value="Pro">Pro</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="text-danger" *ngIf="profileForm.get('status').dirty && profileForm.get('status').invalid">
+                            <span class="col-sm-2"></span>
+                            <span class="col-sm-10" style="padding:4px 0 0">Please enter a valid Status</span>
+                        </div>
+                    </div>
+                    <div class="form-group" [ngClass]="{'has-error': profileForm.get('department').invalid && profileForm.get('department').dirty}">
+                        <!-- <label for="lname" class="col-sm-2 control-label">Department</label> -->
+                        <div class="input-group col-sm-10">
+                            <!-- <div class="input-group-addon">@</div> -->
+                            <!-- <input type="text" class="form-control" id="lname" [formControl]="department" placeholder="Department"> -->
+                            <mat-form-field>
+                                <input matInput placeholder="Department" formControlName="department" required>
+                            </mat-form-field>
+                        </div>
+                        <div class="text-danger" *ngIf="profileForm.get('department').dirty && profileForm.get('department').invalid">
+                            <span class="col-sm-2"></span>
+                            <span class="col-sm-10" style="padding:4px 0 0">Please enter a valid email</span>
+                        </div>
+                    </div>
+            
+                    <div class="form-group" [ngClass]="{'has-error': profileForm.get('commencing').invalid && profileForm.get('commencing').dirty}">
+                        <!-- <label for="lname" class="col-sm-2 control-label">Commencing</label> -->
+                        <div class="input-group col-sm-10">
+                            <!-- <div class="input-group-addon">@</div> -->
+                            <!-- <input type="text" class="form-control" id="lname" [formControl]="commencing" placeholder="Commencing"> -->
+                            <mat-form-field>
+                                <input matInput placeholder="Commencing" formControlName="commencing" required>
+                            </mat-form-field>
+                        </div>
+                        <div class="text-danger" *ngIf="profileForm.get('commencing').dirty && profileForm.get('commencing').invalid">
+                            <span class="col-sm-2"></span>
+                            <span class="col-sm-10" style="padding:4px 0 0">Please enter a valid commencing</span>
+                        </div>
+                    </div>
+            
+                    <div class="form-group" [ngClass]="{'has-error': profileForm.get('level').invalid && profileForm.get('level').dirty}">
+                        <!-- <label for="lname" class="col-sm-2 control-label">Level</label> -->
+                        <div class="input-group col-sm-10">
+                            <!-- <div class="input-group-addon">@</div> -->
+                            <!-- <input type="text" class="form-control" id="lname" [formControl]="level" placeholder="Level"> -->
+                            <mat-form-field>
+                                <input matInput placeholder="Level" formControlName="level" required>
+                            </mat-form-field> 
+                        </div>
+                        <div class="text-danger" *ngIf="profileForm.get('level').dirty && profileForm.get('level').invalid">
+                            <span class="col-sm-2"></span>
+                            <span class="col-sm-10" style="padding:4px 0 0">Please enter a valid level</span>
+                        </div>
+                    </div>
+                    <div class="form-group" [ngClass]="{'has-error': profileForm.get('directExpriance').invalid && profileForm.get('directExpriance').dirty}">
+                        <!-- <label for="lname" class="col-sm-2 control-label">Direct Expriance</label> -->
+                        <div class="input-group col-sm-10">
+                            <!-- <div class="input-group-addon">@</div> -->
+                            <!-- <input type="text" class="form-control" id="lname" [formControl]="directExpriance" placeholder="Direct Expriance"> -->
+                            <mat-form-field>
+                                <input matInput placeholder="Direct Expriance" formControlName="directExpriance" required>
+                            </mat-form-field>
+                        </div>
+                        <div class="text-danger" *ngIf="profileForm.get('directExpriance').dirty && profileForm.get('directExpriance').invalid">
+                            <span class="col-sm-2"></span>
+                            <span class="col-sm-10" style="padding:4px 0 0">Please enter a valid Direct expriance</span>
+                        </div>
+                    </div>
+            </div>
+
+            <div class="col-sm">
+                <div class="form-group" [ngClass]="{'has-error': profileForm.get('middlename').invalid && profileForm.get('middlename').dirty}">
+                    <!-- <label for="fname" class="col-sm-2 control-label">First Name</label> -->
+                    <div class="input-group col-sm-10">
+                        <div class="input-group-addon"><i class="glyphicon glyphicon-font"></i></div>
+                        <!-- <input type="text" class="form-control" id="fname" [formControl]="firstname" placeholder="First Name"> -->
+                        <mat-form-field>
+                                <input matInput placeholder="Middle Name" formControlName="middlename" required>
+                            </mat-form-field>
+                        </div>
+                    <div class="text-danger" *ngIf="profileForm.get('middlename').dirty && profileForm.get('middlename').invalid">
+                        <span class="col-sm-2"></span>
+                        <span class="col-sm-10" style="padding:4px 0 0">Please enter your middle name</span>
+                    </div>
+                </div>
+
+                <div class="form-group" [ngClass]="{'has-error': profileForm.get('independentExpriance').invalid && profileForm.get('independentExpriance').dirty}">
+                    <!-- <label for="fname" class="col-sm-2 control-label">First Name</label> -->
+                    <div class="input-group col-sm-10">
+                        <div class="input-group-addon"><i class="glyphicon glyphicon-font"></i></div>
+                        <!-- <input type="text" class="form-control" id="fname" [formControl]="firstname" placeholder="First Name"> -->
+                        <mat-form-field>
+                                <input matInput placeholder="Indirect Expriance" formControlName="independentExpriance" required>
+                            </mat-form-field>
+                        </div>
+                    <div class="text-danger" *ngIf="profileForm.get('independentExpriance').dirty && profileForm.get('independentExpriance').invalid">
+                        <span class="col-sm-2"></span>
+                        <span class="col-sm-10" style="padding:4px 0 0">Please enter your indirect expriance</span>
+                    </div>
+                </div>
+
+                <div class="form-group" [ngClass]="{'has-error': profileForm.get('level').invalid && profileForm.get('level').dirty}">
+                    <!-- <label for="fname" class="col-sm-2 control-label">First Name</label> -->
+                    <div class="input-group col-sm-10">
+                        <div class="input-group-addon"><i class="glyphicon glyphicon-font"></i></div>
+                        <!-- <input type="text" class="form-control" id="fname" [formControl]="firstname" placeholder="First Name"> -->
+                        <mat-form-field>
+                                <input matInput placeholder="Level" formControlName="level" required>
+                            </mat-form-field>
+                        </div>
+                    <div class="text-danger" *ngIf="profileForm.get('level').dirty && profileForm.get('level').invalid">
+                        <span class="col-sm-2"></span>
+                        <span class="col-sm-10" style="padding:4px 0 0">Please enter your level</span>
+                    </div>
+                </div>
+
+                <div class="form-group" [ngClass]="{'has-error': profileForm.get('service').invalid && profileForm.get('service').dirty}">
+                    <!-- <label for="fname" class="col-sm-2 control-label">First Name</label> -->
+                    <div class="input-group col-sm-10">
+                        <div class="input-group-addon"><i class="glyphicon glyphicon-font"></i></div>
+                        <!-- <input type="text" class="form-control" id="fname" [formControl]="firstname" placeholder="First Name"> -->
+                        <mat-form-field>
+                                <input matInput placeholder="Service" formControlName="service" required>
+                            </mat-form-field>
+                        </div>
+                    <div class="text-danger" *ngIf="profileForm.get('service').dirty && profileForm.get('service').invalid">
+                        <span class="col-sm-2"></span>
+                        <span class="col-sm-10" style="padding:4px 0 0">Please enter service</span>
+                    </div>
+                </div>
+
+                <div class="form-group" [ngClass]="{'has-error': profileForm.get('crt').invalid && profileForm.get('crt').dirty}">
+                    <!-- <label for="fname" class="col-sm-2 control-label">First Name</label> -->
+                    <div class="input-group col-sm-10">
+                        <div class="input-group-addon"><i class="glyphicon glyphicon-font"></i></div>
+                        <!-- <input type="text" class="form-control" id="fname" [formControl]="firstname" placeholder="First Name"> -->
+                        <mat-form-field>
+                                <input matInput placeholder="CRT Service" formControlName="crt" required>
+                            </mat-form-field>
+                        </div>
+                    <div class="text-danger" *ngIf="profileForm.get('crt').dirty && profileForm.get('crt').invalid">
+                        <span class="col-sm-2"></span>
+                        <span class="col-sm-10" style="padding:4px 0 0">Please enter service</span>
+                    </div>
+                </div>
+
+                <div class="form-group" [ngClass]="{'has-error': profileForm.get('sex').invalid && profileForm.get('sex').dirty}">
+                    <!-- <label for="fname" class="col-sm-2 control-label">First Name</label> -->
+                    <div class="input-group col-sm-10">
+                        <div class="input-group-addon"><i class="glyphicon glyphicon-font"></i></div>
+                        <!-- <input type="text" class="form-control" id="fname" [formControl]="firstname" placeholder="First Name"> -->
+                        <mat-form-field>
+                                <input matInput placeholder="Sex" formControlName="sex" required>
+                            </mat-form-field>
+                        </div>
+                    <div class="text-danger" *ngIf="profileForm.get('sex').dirty && profileForm.get('sex').invalid">
+                        <span class="col-sm-2"></span>
+                        <span class="col-sm-10" style="padding:4px 0 0">Please enter service</span>
+                    </div>
+                </div>
+            </div>
+        </div>  
+        
+    
+          <div class="form-group">
+              <label for="password" class="col-sm-2 control-label">Last Login</label>
+              <div class="input-group col-sm-10">
+                  <div class="input-group-addon"><i class="glyphicon glyphicon glyphicon-calendar"></i></div>
+                  <div class="form-ele">{{ userObj.lastlogin | date:'medium' }}</div>
+              </div>
+          </div>
+          <div class="form-group">
+              <label class="col-sm-2 control-label"></label>
+              <div class="col-sm-10">
+                  <button type="submit" [disabled]="profileForm.invalid" class="btn btn-primary">Update</button>
+                  <button type="reset" class="btn btn-default">Cancel</button>
+              </div>
+          </div>
+      </form>
+    
+    </div>
+      
+</mat-card>
+
+<!-- footer -->
+<app-footer></app-footer>

@@ -1,0 +1,167 @@
+<!-- header -->
+<app-header></app-header>
+
+<!-- <div class="container pagecontainer">
+    <mat-card>
+
+        <form [formGroup]="passwordForm" (ngSubmit)="updatePassword(passwordForm.value)" class="cd-form floating-labels" >
+            <fieldset>
+                <legend>Password Change</legend>
+
+                <div class="form-group" [ngClass]="{'has-error': passwordForm.get('oldpassword').invalid && passwordForm.get('oldpassword').dirty}">
+                    <label class="control-label col-sm-3 col-md-4" for="old_password">Current password:*</label>
+                    <div class="col-sm-9 col-md-8">
+                        <div class="input-group-addon"><i class="glyphicon glyphicon glyphicon-lock"></i></div>
+                        <input type="password" autocomplete="current-password" class="form-control" id="oldpassword" [formControl]="oldpassword" placeholder="Existing Password">
+                    </div>
+                    <div class="text-danger" *ngIf="passwordForm.get('oldpassword').dirty && passwordForm.get('oldpassword').errors">
+                        <span class="col-sm-2"></span>
+                        <span class="col-sm-10" style="padding:4px 0 0" *ngIf="passwordForm.get('oldpassword').errors.required">
+                            Please enter existing password
+                        </span>
+                    </div>
+                </div>
+        
+                <div formGroupName="passwordGroup" [ngClass]="{'has-error': passwordForm.get('passwordGroup').errors }">
+        
+                    <div class="form-group" [ngClass]="{'has-error': passwordForm.get('passwordGroup.password').invalid && passwordForm.get('passwordGroup.password').dirty}">
+                        <label class="control-label col-sm-3 col-md-4" for="password">New Password:*</label>
+                        <div class="input-group col-sm-10">
+                            <div class="input-group-addon"><i class="glyphicon glyphicon glyphicon-asterisk"></i></div>
+                            <input type="password" autocomplete="new-password" class="form-control" id="password" [formControl]="password" placeholder="New Pasword">
+                        </div>
+                        <div class="text-danger"  *ngIf="passwordForm.get('passwordGroup.password').dirty && passwordForm.get('passwordGroup.password').errors">
+                            <span class="col-sm-2"></span>
+                            <span class="col-sm-10" style="padding:4px 0 0" *ngIf="passwordForm.get('passwordGroup.password').errors.required">
+                                Please enter password
+                            </span>
+                            <span class="col-sm-10" style="padding:4px 0 0" *ngIf="passwordForm.get('passwordGroup.password').errors.pattern">
+                                Password must contain one letter, number & special characters
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group" [ngClass]="{'has-error': passwordForm.get('passwordGroup.retypepass').invalid && passwordForm.get('passwordGroup.retypepass').dirty}">
+                        <label class="control-label col-sm-3 col-md-4" for="password_confirmation">Confirm Password:*</label>
+                        <div class="input-group col-sm-10">
+                            <div class="input-group-addon"><i class="glyphicon glyphicon glyphicon-asterisk"></i></div>
+                            <input type="password" autocomplete="new-password" class="form-control" [formControl]="retypepass" id="retypepass" placeholder="Retype Password">
+                        </div>
+                        <div class="text-danger" *ngIf="(passwordForm.get('passwordGroup.retypepass').touched || passwordForm.get('passwordGroup.retypepass').dirty) && (passwordForm.get('passwordGroup.retypepass').errors || passwordForm.get('passwordGroup').errors)">
+                            <span class="col-sm-2"></span>
+                            <span class="col-sm-10" style="padding:4px 0 0" *ngIf="passwordForm.get('passwordGroup.retypepass').errors?.required">
+                                Please confirm your password
+                            </span>
+                            <span class="col-sm-10" style="padding:4px 0 0" *ngIf="passwordForm.get('passwordGroup').errors?.mismatchedPassword">
+                                Password do not match
+                            </span>
+                        </div>
+                    </div>
+        
+                </div>
+        
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"></label>
+                    <div class="col-sm-10 form-actions text-right">
+                        <button type="submit" [disabled]="passwordForm.invalid" class="btn btn-primary">Update</button>
+                        <button type="reset" class="btn btn-default">Cancel</button>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+
+    </mat-card>
+ 
+
+</div> -->
+
+
+<div class="login_wrapper">
+    <div class="container">
+        <div class="col-md-12 pad-0">
+            <div class="row login-box-12">
+            	<div class="col-lg-5 col-md-12 col-sm-12 px-0">
+                	<div class="login_right">
+	                    <a href="#" class="logo_text">
+	                        <span>AAU</span> Business Enterprize
+	                    </a>
+	                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt Lorem Ipsum</p>
+	                    <a href="#" class="btn-outline">Read More</a>
+	                    <ul class="social-list clearfix">
+	                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+	                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+	                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+	                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+	                    </ul>
+	                </div>
+                </div>
+                <div class="col-lg-7 col-sm-12">
+                    <div class="login-inner-form">
+                        <div class="details">
+                            <h3>Change <span>My Password</span></h3>
+                            <form [formGroup]="passwordForm" (ngSubmit)="updatePassword(passwordForm.value)">
+                                <div class="form-group" [ngClass]="{'has-error': passwordForm.get('oldpassword').invalid && passwordForm.get('oldpassword').dirty}">
+                                    <!-- <label class="control-label col-sm-3 col-md-4" for="old_password">Current password:*</!--> 
+                                    <div class="col-sm-10 ">
+                                        <div class="input-group-addon"><i class="glyphicon glyphicon glyphicon-lock"></i></div>
+                                        <input type="password" class="example-full-width" autocomplete="current-password" class="form-control" id="oldpassword" [formControl]="oldpassword" placeholder="Existing Password">
+                                    </div>
+                                    <div class="text-danger" *ngIf="passwordForm.get('oldpassword').dirty && passwordForm.get('oldpassword').errors">
+                                        <span class="col-sm-2"></span>
+                                        <span class="col-sm-10" style="padding:4px 0 0" *ngIf="passwordForm.get('oldpassword').errors.required">
+                                            Please enter existing password
+                                        </span>
+                                    </div>
+                                </div>
+                        
+                                <div formGroupName="passwordGroup" [ngClass]="{'has-error': passwordForm.get('passwordGroup').errors }">
+                        
+                                    <div class="form-group" [ngClass]="{'has-error': passwordForm.get('passwordGroup.password').invalid && passwordForm.get('passwordGroup.password').dirty}">
+                                        <!-- <label class="control-label col-sm-3 col-md-4" for="password">New Password:*</label> -->
+                                        <div class="input-group col-sm-10">
+                                            <div class="input-group-addon"><i class="glyphicon glyphicon glyphicon-asterisk"></i></div>
+                                            <input type="password" class="example-full-width" autocomplete="new-password" class="form-control" id="password" [formControl]="password" placeholder="New Pasword">
+                                        </div>
+                                        <div class="text-danger"  *ngIf="passwordForm.get('passwordGroup.password').dirty && passwordForm.get('passwordGroup.password').errors">
+                                            <span class="col-sm-2"></span>
+                                            <span class="col-sm-10" style="padding:4px 0 0" *ngIf="passwordForm.get('passwordGroup.password').errors.required">
+                                                Please enter password
+                                            </span>
+                                            <span class="col-sm-10" style="padding:4px 0 0" *ngIf="passwordForm.get('passwordGroup.password').errors.pattern">
+                                                Password must contain one letter, number & special characters
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" [ngClass]="{'has-error': passwordForm.get('passwordGroup.retypepass').invalid && passwordForm.get('passwordGroup.retypepass').dirty}">
+                                        <!-- <label class="control-label col-sm-3 col-md-4" for="password_confirmation">Confirm Password:*</!--> 
+                                        <div class="input-group col-sm-10">
+                                            <div class="input-group-addon"><i class="glyphicon glyphicon glyphicon-asterisk"></i></div>
+                                            <input type="password" class="example-full-width" autocomplete="new-password" class="form-control" [formControl]="retypepass" id="retypepass" placeholder="Retype Password">
+                                        </div>
+                                        <div class="text-danger" *ngIf="(passwordForm.get('passwordGroup.retypepass').touched || passwordForm.get('passwordGroup.retypepass').dirty) && (passwordForm.get('passwordGroup.retypepass').errors || passwordForm.get('passwordGroup').errors)">
+                                            <span class="col-sm-2"></span>
+                                            <span class="col-sm-10" style="padding:4px 0 0" *ngIf="passwordForm.get('passwordGroup.retypepass').errors?.required">
+                                                Please confirm your password
+                                            </span>
+                                            <span class="col-sm-10" style="padding:4px 0 0" *ngIf="passwordForm.get('passwordGroup').errors?.mismatchedPassword">
+                                                Password do not match
+                                            </span>
+                                        </div>
+                                    </div>
+                        
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" [disabled]="passwordForm.invalid" class="btn-md btn-theme btn-block">Change Password</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- footer -->
+<app-footer></app-footer>

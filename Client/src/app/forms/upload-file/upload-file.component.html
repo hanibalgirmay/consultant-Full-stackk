@@ -1,0 +1,16 @@
+<!-- header -->
+<app-header></app-header>
+<!-- end header -->
+
+<div class="container" style="padding-top: 15%;padding-bottom:50%">
+  <div class="uploadfilecontainer" (click)="fileInput.click()" appDragDrop (onFileDropped)="uploadFile($event)">
+    <input hidden type="file" #fileInput (change)="uploadFile($event.target.files)">
+  </div>
+  <div  class="files-list" *ngFor="let file of files;let i= index">
+      <p> {{ file }} </p>
+      <button class="delete-file" (click)="deleteAttachment(i)">
+        <img src="../../../assets/Recycle_Bin_Full.png">
+      </button>
+   </div>
+   <button mat-button color="primary">Upload</button>
+</div>

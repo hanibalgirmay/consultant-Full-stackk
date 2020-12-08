@@ -1,0 +1,56 @@
+<section class="about-area pt-60" id="partner">
+         <div class="container">
+            <div class="row">
+               <div class="col-xl-12 mb-60">
+                  <div class="section-title text-center">
+                     <h4 class="text-center">our Partners</h4>
+                  </div>
+               </div>
+            </div>
+            <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="skills">
+                  <div class="my-auto">
+                    <h2 class="mb-5">Partners</h2>
+            
+                    <div class="subheading mb-3">companies and organizations that works with us.</div>
+                        <ul class="list-inline dev-icons">
+                          <li class="list-inline-item" *ngFor="let partner of partners"> 
+                              <a data-toggle="modal" (click)="view(partner._id)" data-target="#view" target="blank" href="http://localhost:2011/{{partner.partnerImage}}"><img src="http://localhost:2011/{{partner.partnerImage}}" alt="" class="viewImg2"></a>
+                          </li>
+                        </ul>
+                  </div>
+               </section>
+               <!-- <div class="row menu_style1" >
+                  <div class="col-sm-3 mb-10" >
+                     <ul >
+                        <li><a target="blank" href="http://localhost:2011/{{partner.partnerImage}}"><img src="http://localhost:2011/{{partner.partnerImage}}" alt="" class="viewImg2"></a></li>
+                        <li>{{partners.name}}</li>
+                     </ul>
+                     
+                  </div>
+                  
+               </div> -->
+            
+            
+        </div>
+</section>
+
+
+<mat-card style="text-align: center"><a routerLink='/request/partner'> Request Partner</a></mat-card>
+
+<div class="modal fade custom" id="view" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog" role="document">
+      <div class="modal-content"  >
+         <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel"><img class="viewImg" src="http://localhost:2011/{{data.partnerImage}}" alt=""><span class="dt"> {{data.name}}</span></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+         <div class="modal-body">
+            <h2>Name:{{data.name}}</h2>
+            <h2 (click)=link(data.websiteLink)>Website: {{data.websiteLink}}</h2>
+            <h2>Phone Number:{{data.phoneNumber}}</h2>
+         </div>
+      </div>
+   </div>
+</div>

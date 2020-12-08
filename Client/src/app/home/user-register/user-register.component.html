@@ -1,0 +1,272 @@
+<!-- header -->
+<app-header></app-header>
+<!-- end -->
+
+<!-- <div class="man">
+	<mat-card>       
+		<mat-card-title>    
+			Registeration    
+		</mat-card-title>    
+		
+		<mat-card-content>    
+			<form [formGroup]="registrationForm" autocomplete="off" (ngSubmit)="UserRegister(registrationForm.value)">    
+				<div class="container">    
+					<div class="row">    
+						<div class="col-sm">    
+							<mat-form-field class="demo-full-width">    
+								<input matInput placeholder="First Name" formControlName="firstname">    
+							</mat-form-field>    
+						</div>    
+						<div class="col-sm">    
+							<mat-form-field class="demo-full-width">    
+								<input matInput placeholder="Middle Name" formControlName="middlename">    
+							</mat-form-field>    
+						</div> 
+						<div class="col-sm">    
+							<mat-form-field class="demo-full-width">    
+								<input matInput placeholder="Last Name" formControlName="lastname">    
+							</mat-form-field>    
+						</div>    
+					</div>    
+
+					<div class="row">
+						<div class="col-sm">
+							<mat-form-field class="demo-full-width">
+								<input matInput placeholder="Username" formControlName="username">
+							</mat-form-field>
+						</div>
+						<div class="col-sm" >    
+							<mat-form-field class="demo-full-width">
+								<input matInput [matDatepicker]="picker" placeholder="Birth date">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+							</mat-form-field>   
+						</div>
+					</div>
+					<div class="row">
+						<div formGroupName="passwordGroup" [ngClass]="{'has-error': registrationForm.get('passwordGroup').errors }">
+							<div class="col-sm">
+		
+								<div class="form-group" [ngClass]="{'has-error': registrationForm.get('passwordGroup.password').invalid && registrationForm.get('passwordGroup.password').dirty}">
+									<div class="input-group ">
+										<div class="input-group-addon"><i class="glyphicon glyphicon glyphicon-asterisk"></i></div>
+										<mat-form-field class="demo-full-width">
+											<input matInput type="password" placeholder="Password" id="password" [formControl]="password">
+										</mat-form-field>
+									</div>
+									<div class="text-danger"  *ngIf="registrationForm.get('passwordGroup.password').dirty && registrationForm.get('passwordGroup.password').errors">
+										<span class="col-sm-2"></span>
+										<span class="col-sm-10" style="padding:4px 0 0" *ngIf="registrationForm.get('passwordGroup.password').errors.required">
+											Please enter password
+										</span>
+										<span class="col-sm-10" style="padding:4px 0 0" *ngIf="registrationForm.get('passwordGroup.password').errors.pattern">
+											Password must contain one letter, number & special characters
+										</span>
+									</div>
+								</div>
+								
+							</div>
+						
+							<div class="col-sm">
+								<div class="form-group" [ngClass]="{'has-error': registrationForm.get('passwordGroup.retypepass').invalid && registrationForm.get('passwordGroup.retypepass').dirty}">
+									<div class="input-group">
+										<div class="input-group-addon"><i class="glyphicon glyphicon glyphicon-asterisk"></i></div>
+										<mat-form-field class="demo-full-width">
+											<input matInput type="password" placeholder=" Retype Password" id="retypepass" [formControl]="retypepass">
+										</mat-form-field>
+									</div>
+									<div class="text-danger" *ngIf="(registrationForm.get('passwordGroup.retypepass').touched || registrationForm.get('passwordGroup.retypepass').dirty) && (registrationForm.get('passwordGroup.retypepass').errors || registrationForm.get('passwordGroup').errors)">
+										<span class="col-sm-2"></span>
+										<span class="col-sm-10" style="padding:4px 0 0" *ngIf="registrationForm.get('passwordGroup.retypepass').errors?.required">
+											Please confirm your password
+										</span>
+										<span class="col-sm-10" style="padding:4px 0 0" *ngIf="registrationForm.get('passwordGroup').errors?.mismatchedPassword">
+											Password do not match
+										</span>
+									</div>
+								</div>
+						
+							</div>
+						</div>
+						
+					</div>
+
+					<div class="row">    
+						 
+						<div class="col-sm" >    
+							<mat-form-field class="demo-full-width">
+								<mat-label>Sex</mat-label>
+								<mat-select formControlName="sex">
+									<mat-option value="male">Male</mat-option>
+									<mat-option value="female">Female</mat-option>
+									<mat-option value="unknown">Unknown</mat-option>
+								</mat-select>
+							</mat-form-field>    
+						</div>  
+						<div class="col-sm">    
+							<mat-form-field class="demo-full-width">
+								<mat-label>Status</mat-label>
+								<mat-select formControlName="status"> 
+									<mat-option value="Mr/Ms">Mr/Ms</mat-option>
+									<mat-option value="PdD">PdD</mat-option>
+									<mat-option value="Ass Pro">Ass Pro</mat-option>
+									<mat-option value="Pro">Pro</mat-option>
+								</mat-select>
+							</mat-form-field>   
+						</div>   
+					</div>     
+					<div class="row">  
+						<div class="col-sm">   
+							<mat-form-field class="demo-full-width">
+								<input matInput placeholder="Department" formControlName="department" required>
+							</mat-form-field>    
+						</div>   
+						<div class="col-sm" >    
+							<mat-form-field class="demo-full-width">
+								<input matInput placeholder="Commencing Form" formControlName="commencing" required>
+							</mat-form-field>    
+						</div>  
+						<div class="col-sm" >    
+							<mat-form-field class="demo-full-width">
+								<input matInput placeholder="Email Address" formControlName="email" required>
+							</mat-form-field>    
+						</div>  
+					</div >     
+					<div class="row">    
+						<div class="col-sm" >    
+							<mat-form-field class="demo-full-width">
+								<input matInput placeholder="Educational Background" formControlName="eduaction" required>
+							</mat-form-field>	
+						</div>
+						<div class="col-sm" >
+							<mat-form-field class="demo-full-width">
+								<input matInput placeholder="Level" formControlName="level" required>
+							</mat-form-field>
+						</div> 
+						  
+					</div>    
+					<div class="row">
+						<div class="col-sm" >
+							<mat-form-field class="demo-full-width">
+								<input matInput placeholder="Relevant Work experience:" formControlName="directExpriance" required>
+							</mat-form-field>
+						</div> 
+					</div>
+					<div class="row">
+						<div class="col-sm" >
+							<mat-form-field class="demo-full-width">
+								<input matInput placeholder="Indirectly relevant work experience" formControlName="independentExpriance" required>
+							</mat-form-field>
+						</div>
+					</div>	
+					<div class="row">
+						<div class="col-sm" >
+							<mat-form-field class="demo-full-width">
+								<input matInput placeholder="Your interest area among CRTs" formControlName="crt">
+							</mat-form-field>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm">
+							<mat-form-field class="demo-full-width">
+								<input matInput placeholder="Availability for CRT services" formControlName="service" required>
+							</mat-form-field>
+						</div>
+						
+					</div>
+					
+					<div class="col-sm" >
+						<input type="file" accept="application/pdf" placeholder="Attach revised a signed &amp; scanned CV." required>
+					</div>
+					<div class="row" style="margin-top: 4%;float:right;">    
+						<div class="col-sm"  class="content-center">    
+							<button mat-raised-button color="primary">Register</button>    
+						</div>    
+					</div>   
+				</div>    
+			</form>    
+		</mat-card-content>    
+	</mat-card>
+</div>		 -->
+
+<div class="login_wrapper">
+    <div class="container">
+        <div class="col-md-12 pad-0">
+            <div class="row login-box-12">
+            	<div class="col-lg-5 col-md-12 col-sm-12 px-0">
+                	<div class="login_right">
+	                    <a href="#" class="logo_text">
+	                        <span>AAU</span> Business Enterprize
+	                    </a>
+	                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt Lorem Ipsum</p>
+	                    <a href="#" class="btn-outline">Read More</a>
+	                    <ul class="social-list clearfix">
+	                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+	                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+	                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+	                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+	                    </ul>
+	                </div>
+                </div>
+                <div class="col-lg-7 col-sm-12">
+                    <div class="login-inner-form">
+                        <div class="details">
+                            <h3>Create <span>your account</span></h3>
+                            <form [formGroup]="registrationForm" autocomplete="off" (ngSubmit)="UserRegister(registrationForm.value)">
+                            	<div class="row">
+									<div class="col-sm">
+										<mat-form-field style="width: 100%">
+											<input matInput placeholder="First name" formControlName="firstname" required>
+										</mat-form-field>
+									</div>
+									<div class="col-sm">
+										<mat-form-field style="width:100%">
+											<input matInput placeholder="Last Name" formControlName="lastname" required>
+										</mat-form-field>
+									</div>
+								</div>
+                                <div class="row">
+									<div class="col-sm">
+										<mat-form-field style="width:100%">
+											<input type="password" matInput formControlName="password" placeholder="Password">
+										</mat-form-field>
+									</div>
+									<div class="col-sm">
+										<mat-form-field style="width:100%">
+											<input type="password" formControlName="confirmPassword" [errorStateMatcher]="errorMatcher" matInput placeholder="Confirm Password">
+											<mat-error *ngIf="registrationForm.hasError('passwordsDoNotMatch')">
+												Passwords do not match!
+											</mat-error>
+										</mat-form-field>
+									</div>
+								</div>
+                                <div class="row">
+									<div class="col-sm">
+										<mat-form-field style="width:100%">
+											<input type="email" matInput formControlName="email" placeholder="Email">
+										</mat-form-field>
+									</div>
+								</div>
+                                <div class="checkbox clearfix">
+                                    <div class="form-check checkbox-input">
+                                        <input class="form-check-input" type="checkbox" value="" id="termServices">
+                                        <label class="form-check-label" for="termServices">
+                                            I agree to the terms of service
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn-md btn-theme btn-block">Register</button>
+                                </div>
+                            </form>
+                            <p>Already a member?<a routerLink="/login"> Login here</a></p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <app-footer></app-footer> -->

@@ -1,0 +1,329 @@
+
+/*mission and vision*/
+.pb-60 {
+    padding-bottom: 60px;
+}
+.pt-60 {
+    padding-top: 60px;
+}
+.mb-60 {
+    margin-bottom: 60px;
+}
+p {
+    font-weight: 300px;
+    font-size: 15px;
+}
+ul{
+    list-style-type: none;
+      padding-top: 3%;
+}
+ol{
+    list-style-type: none;
+      padding-top: 3%;
+      color: #828282;
+      font-weight: 300px; 
+}
+.section-title h4 {
+    font-size: 40px;
+    text-transform: capitalize;
+    color: #FF5E18;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 25px;
+}
+.section-title h4::before {
+    width: 80px;
+    height: 1.5px;
+    bottom: 0;
+    left: 50%;
+    margin-left: -40px;
+}
+.section-title h4::before, .section-title h4::after {
+    position: absolute;
+    content: "";
+    background-color: #FF5E18;
+}
+.section-title h4::after {
+    width: 40px;
+    height: 1.5px;
+    bottom: -5px;
+    left: 50%;
+    margin-left: -20px;
+}
+/*mission and vision end*/
+mat-card {
+    margin: 8%
+}
+@media screen and (max-width:750px){
+  .row {
+    display: inline-block;
+    columns: 1fr;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  .contact-left {
+    display: block;
+    width: 100%;
+  }
+}
+.row .col.s12 {
+    width: 100%;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+  }      
+      @media screen and (max-width: 991px) {
+      
+          body {
+              padding: 15px;
+          }
+          .sec-p100-bg-bs {
+              padding: 30px;
+          }
+          .Section-title h2 {
+              padding: 0px 0px;
+          }
+          .Section-title span {
+              top: -32px;
+              font-size: 65px;
+          }
+          .contact-me-section .contact-left .cont-item {
+              margin-bottom: 30px;
+              background-color: #ffffff;
+              box-shadow: 0px 5px 20px 0px rgba(1, 1, 1, 0.1);
+          }
+          .contact-me-section .contact-left .cont-item:last-child {
+              margin-bottom: 30px;
+          }
+      }           
+      @media screen and (max-width: 680px){
+          .Section-title h2 {
+              font-size: 24px;
+          }
+      }      
+      @media screen and (max-width: 480px){
+          body {
+              font-size: 14px;
+          }
+          .Section-title h2 {
+              font-size: 18px;
+          }
+          .Section-title span {
+              top: -10px;
+              font-size: 26px;
+          }
+          .contact-me-section .contact-left .cont-item {
+              height: 160px;
+              padding: 30px;
+          }
+          .contact-me-section .contact-right {
+              padding: 30px;
+          }
+      }
+      /* ------------------------------------------------------------------------------------------
+      5 - media screen and (max-width: 480px) End
+      ------------------------------------------------------------------------------------------ */
+ /* ------------------------------------------------------------------------------------------
+      6 - media screen and (max-width: 320px) Start
+      ------------------------------------------------------------------------------------------ */
+      
+      @media screen and (max-width: 320px){
+          .Section-title span {
+              font-size: 24px;
+          }
+      
+          .header-section nav.main-nav ul.alternative-menu > li > a {
+              padding: 0px 18px;
+          }
+          .contact-me-section .contact-left .cont-item {
+              height: 150px;
+              padding: 15px;
+          }      
+      }
+      @media (max-width: 1199px){
+          .contact-me-section .contact-right{
+              margin-top:100px !important;
+          }
+      }
+  @import url('https://fonts.googleapis.com/css?family=Merienda:400,700|Raleway:300,300i,400,400i,700,700i|Roboto:300,300i,400,400i,700,700i');
+  
+  body { font-family: 'Roboto', sans-serif; }
+  h1,h2,h3,h4,h5,h6 { font-family: 'Raleway', sans-serif; }
+  /*  - 1 - fonts load end
+  ==================================================================================================== */
+  .Section-title {
+    width: 100%;
+    display: table;
+    text-align: left;
+    position: relative;
+    margin-bottom: 60px;
+  
+  }
+  /* title
+  .................................................. */
+  h2.title {
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+  }
+  /* - Section-title end
+  ================================================== */
+  
+  
+  .sec-p100-bg-bs {
+    padding: 100px;
+    padding-top:80px;
+    background-color: #ffffff;
+    box-shadow: 0px 10px 40px 0px rgba(1, 1, 1, 0.1);
+  }  
+  /* item-body
+  .................................................. */
+  #graphicdesign,
+  #photography,
+  #technology,
+  #design,
+  #webdevelopment,
+  #application {
+    padding: 60px 60px;
+    background-color: #fff;
+    box-shadow: 0px 10px 40px 0px rgba(1, 1, 1, 0.1);
+  }
+  
+  #graphicdesign h2.title,
+  #photography h2.title,
+  #technology h2.title,
+  #design h2.title,
+  #webdevelopment h2.title,
+  #application h2.title {
+    margin-bottom: 50px;
+  }
+  
+  @keyframes Rx-width-90 {
+   0% {
+    width: 0%;
+  }
+  
+  100% {
+    width: 90%;
+  }
+  }
+  @-webkit-keyframes Rx-width-90 {
+   0% {
+    width: 0%;
+  }
+  
+  100% {
+    width: 90%;
+  }
+  }
+  
+  @-webkit-keyframes Rx-width-60 {
+   0% {
+    width: 0%;
+  }
+  
+  100% {
+    width: 65%;
+  }
+  }
+  
+  @-webkit-keyframes Rx-width-75 {
+   0% {
+    width: 0%;
+  }
+  
+  100% {
+    width: 75%;
+  }
+  }
+  
+  @keyframes Rx-width-75 {
+   0% {
+    width: 0%;
+  }
+  
+  100% {
+    width: 75%;
+  }
+  }
+  
+  
+  @-webkit-keyframes Rx-width-45 {
+   0% {
+    width: 0%;
+  }
+  
+  100% {
+    width: 45%;
+  }
+  }
+  
+  @-webkit-keyframes Rx-width-65 {
+   0% {
+    width: 0%;
+  }
+  
+  100% {
+    width: 65%;
+  }
+  }
+  
+  @keyframes Rx-width-80 {
+   0% {
+    width: 0%;
+  }
+  
+  100% {
+    width: 80%;
+  }
+  }
+  /* - 4.8 - contact-me-section start
+  ================================================== */
+  .contact-me-section .contact-left .cont-item {
+    width: 100%;
+    height: 206px;
+    display: table;
+    padding: 60px 60px;
+    margin-bottom: 30px;
+    transition: all .4s ease-in-out;
+     background-color: #ffffff;
+    box-shadow: 0px 10px 40px 0px rgba(1, 1, 1, 0.1);
+  }
+  .contact-me-section .contact-right .cont-item {
+    width: 100%;
+    height: 206px;
+    display: table;
+    padding: 60px 60px;
+    margin-bottom: 30px;
+    transition: all .4s ease-in-out;
+     background-color: #ffffff;
+    box-shadow: 0px 10px 40px 0px rgba(1, 1, 1, 0.1);
+  }
+  .contact-me-section .contact-left .contact-right .cont-item:last-child {
+    margin-bottom: 0px;
+  }
+  .contact-me-section .contact-left .cont-item p > span {
+    float: left;
+    width: 110px;
+    margin-right: 25px;
+    position: relative;
+  }
+  .contact-me-section .contact-left .cont-item p > span:after {
+    top: 0;
+    right: 0;
+    content: ':';
+    color: #828292;
+    position: absolute;
+  }
+  
+  /* contact-right
+  .................................................. */
+  .contact-me-section .contact-right h2.title {
+    color: #000;
+  }
+  /* - 4 - home (index page) end
+  ====================================================================================================  */
+
+

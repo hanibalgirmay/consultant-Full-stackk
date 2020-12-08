@@ -1,0 +1,84 @@
+<app-header></app-header>
+
+<!-- <div class="ms">
+  <div class="card mb-3">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img src="https://imgplaceholder.com/140x140" class="card-img" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{msg.subject}}</h5>
+          <p class="card-text">{{msg.message}}</p>
+          <p class="card-text"><small class="text-muted">Last updated {{msg.modified_At}}</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+<div class="card">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <mat-card>
+          <mat-card-header>
+            <h3>Your Message</h3>
+            <span>{{msg.created_At}}</span>
+          </mat-card-header>
+      
+          <mat-card-content>
+            <p>subject: {{msg.subject}}</p>
+              <p>message:<strong> {{msg.message}}</strong></p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+  <button data-toggle="modal" data-target="#message" mat-button style="float: right;width:20px">Reply</button>
+</div>
+
+<!-- modal for user to send message -->
+<div class="modal fade" tabindex="-1" role="dialog" id="message" aria-labelledby="createModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Send Message</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="validationForm" (ngSubmit)="sendMessage(validationForm.value)" novalidate>
+            <div class="example-container">
+              <div class="row">
+                <div class="col-sm">
+                  <mat-form-field class="example-full-width">
+                    <input matInput formControlName="subject" placeholder="Subject">
+                  </mat-form-field>
+                </div>
+              </div>
+  
+              <div class="row">
+                <div class="col-sm">
+                  <mat-form-field class="example-full-width">
+                    <textarea rows="5" matInput formControlName="message" placeholder="Message"></textarea>
+                  </mat-form-field>
+                </div>
+              </div>
+              <mat-card-actions>
+                <button mat-button color="blue" [disabled]="!validationForm.value" >Send</button>
+              </mat-card-actions>
+            </div>
+          </form>
+        </div>
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger">Delete</button>
+        </div> -->
+      </div>
+    </div>
+  </div>
+  <!-- end modal -->
+
+<!-- footer -->
+<app-footer></app-footer>

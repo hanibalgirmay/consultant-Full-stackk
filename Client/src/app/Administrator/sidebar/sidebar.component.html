@@ -1,0 +1,66 @@
+<!-- Sidebar  -->
+<nav id="sidebar">
+    <div class="sidebar-header">
+        <h3>AAU Enterprize</h3>
+    </div>
+
+    <ul class="list-unstyled components">
+        <p><a routerLink="'aau/admin/dashboard"> DashBoard</a></p>
+        <li class="active">
+            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Partners</a>
+            <ul class="collapse list-unstyled" id="homeSubmenu">
+                <li>
+                    <a routerLink="partner/list" routerLinkActive="active-link">View Partners</a>
+                </li>
+                <li>
+                    <a routerLink="">Requested Partner</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a routerLink="users/list">Users</a>
+        </li>
+        <li>
+            <a routerLink="blogs">Blogs</a>
+        </li>
+        <li>
+            <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">CRT Services</a>
+            <ul class="collapse list-unstyled" id="pageSubmenu">
+                <li>
+                    <a routerLink="consultant/list" routerLinkActive="active-link">Consultant</a>
+                </li>
+                <li>
+                    <a routerLink="research/list" routerLinkActive="active-link">Research</a>
+                </li>
+                <li>
+                    <a routerLink="training/list" routerLinkActive="active">Training</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a routerLink="message" routerLinkActive='active'>Messages</a>
+        </li>
+        <li>
+            <a href="#evaluate" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Evaluated CRT Services</a>
+            <ul class="collapse list-unstyled" id="evaluate">
+                <li>
+                    <a routerLink="Evaluate/consultant" routerLinkActive="active">Evaluated Consultant</a>
+                </li>
+                <li>
+                    <a routerLink="Evaluate/research" routerLinkActive="active">Evaluated Research</a>
+                </li>
+                <li>
+                    <a routerLink="training/list" routerLinkActive="active">Training</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <ul class="list-unstyled CTAs">
+        <li>
+            <a routerLink="admin/logout" class="download">Log out</a>
+        </li>
+    </ul>
+</nav>
+<!-- <router-outlet></router-outlet> -->
+<!-- <router-outlet name="out1  "></router-outlet>  -->

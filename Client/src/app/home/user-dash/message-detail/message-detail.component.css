@@ -1,0 +1,14 @@
+.ms {
+    padding-top: 7%;
+    /* padding-bottom: 6%; */
+}
+
+.card {
+    /* max-width: 540px; */
+    padding: 10%;
+    margin-top: 5%;
+    /* margin-left: 25%; */
+}
+.example-full-width{
+    width: 100%;
+}
